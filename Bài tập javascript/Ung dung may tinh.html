@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="number1" placeholder="Nhập số thứ nhất">
+<input type="number" id="number2" placeholder="Nhập số thứ hai">
+<br><br>
+<button onclick="add()">Addition (+)</button>
+<button >Subtraction (-) </button>
+<button >Multiplication (X)</button>
+<button >Division (/)</button>
+<br><br>
+<p id="result">Result:</p>
+</body>
+<script>
+  function add(){
+    let a = Number(document.getElementById("number1").value);
+    let b = Number(document.getElementById("number2").value);
+    let result = (a+b);
+    document.getElementById("result").innerHTML = result;
+  }
+</script>
+</html>
