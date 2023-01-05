@@ -5,15 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+<input type="number" id="nam">
+<button type="button" onclick="timnamnhuan()">Click</button>
 <script>
     let a;
-    a = prompt("Nhập số năm")
-    if(a%4 == 0){
-        document.write(a +  "là năm nhuận")
-    }else if(a%400 == 0){
-        document.write(a + "là năm nhuận")
-    }else{
-        document.write(a +  "không phải là năm nhuận")
+    a = number(document.getElementById("nam").value)
+    //a = prompt("Nhập số năm")
+    function timnamnhuan() {
+        if (a % 4 == 0) {
+            document.write(a + "là năm nhuận");
+        } else if (a % 100 == 0 && a % 400 == 0) {
+            document.write(a + "là năm nhuận");
+        } else {
+            document.write(a + "không phải là năm nhuận");
+        }
     }
 </script>
 </body>
