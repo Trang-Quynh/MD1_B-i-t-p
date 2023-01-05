@@ -7,11 +7,18 @@
 <body>
 <script>
   let a = prompt("Nhap mat khau vao day")
-  if (a == "TheMaster") {
-    document.write("Welcome")
-  }else if(a == null){
-    document.write("Canceled")
-  }else{
+  if (a == "Admin") {
+    let b = prompt("Nhap mat khau");
+    if (b == "TheMaster") {
+      document.write("Welcome")
+    } else if (b == null) {
+      document.write("Canceled")
+    } else {
+      document.write(b)
+    }
+  } else if (a == null) {
+    document.write("canceled")
+  } else {
     document.write("I don't know you")
   }
 </script>
