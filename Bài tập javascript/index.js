@@ -1,3 +1,3 @@
-function myFunction() {
-    document.getElementById("demo").innerHTML = "Paragraph changed.";
+function showMessage(){
+    document.getElementById("Hello").innerHTML='Xin chào';
 }
