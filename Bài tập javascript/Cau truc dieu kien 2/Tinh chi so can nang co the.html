@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="weight" type="number" placeholder="Nhap can nang vao day:">
+<br>
+<p>Nếu cân nặng là 65kg thì nhập 65</p>
+<input id="height" type="number" placeholder="Nhap chieu cao vao day:">
+<br>
+<p>Nếu chiều cao là 1.75m thì nhập 1.75</p>
+<br>
+<br>
+<button type="button" onclick="tinhchiso()">Kiem tra chi so bmi</button>
+<script>
+  function tinhchiso() {
+    let cannang = parseInt(document.getElementById("weight").value)
+    let chieucao = parseInt(document.getElementById("height").value)
+    let chiso = cannang/Math.pow(chieucao,2)
+    if (chiso<18) {
+      document.write("underweight");
+    }else if (chiso<=25) {
+      document.write("nomal");
+    }else if (chiso<=30) {
+      document.write("overweight");
+    }else {
+      document.write("obese");
+    }
+  }
+</script>
+</body>
+</html>
