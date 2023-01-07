@@ -14,20 +14,23 @@
 <br>
 <br>
 <button type="button" onclick="tinhchiso()">Kiem tra chi so bmi</button>
+<br><br>
+<div id="result"></div>
 <script>
   function tinhchiso() {
-    let cannang = parseInt(document.getElementById("weight").value)
-    let chieucao = parseInt(document.getElementById("height").value)
-    let chiso = cannang/Math.pow(chieucao,2)
-    if (chiso<18) {
-      document.write("underweight");
-    }else if (chiso<=25) {
-      document.write("nomal");
-    }else if (chiso<=30) {
-      document.write("overweight");
-    }else {
-      document.write("obese");
-    }
+    let cannang = document.getElementById("weight").value;
+    let chieucao = document.getElementById("height").value;
+    let chiso = cannang/Math.pow(chieucao,2);
+    let result;
+    if (chiso<18.5)
+      result = "underweight";
+    else if (chiso<=25)
+      result = "nomal";
+    else if (chiso<=30)
+      result = "overweight";
+    else
+      result = "obese";
+      document.getElementById("result").innerHTML = "Chỉ số BMI là: " + chiso +  " " + result
   }
 </script>
 </body>
