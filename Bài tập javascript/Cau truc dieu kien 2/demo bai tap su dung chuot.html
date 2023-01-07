@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<body>
+<img id="image" style="position:relative;left:0;" width="30%" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg">
+<p>click vào đây:</p>
+<button onclick="move()">Click Me</button>
+<script>
+    let img;
+    img = document.getElementById("image");
+    function move() {
+        img.style.left = parseInt(img.style.left) + 10 + "px";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="abc()">
+<img id="nobita" style="position:absolute;left:0; top:0" height="100" width="80" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" alt="anhnobita">
+<script>
+    function nhanlen() {
+        let image=document.getElementById("nobita");
+        image.style.top=parseInt(image.style.top) - 5 + "px";
+    }
+    function nhanxuong() {
+        let image=document.getElementById("nobita");
+        image.style.top=parseInt(image.style.top) + 5 + "px"
+    }
+    function nhantrai() {
+        let image=document.getElementById("nobita");
+        image.style.left=parseInt(image.style.left) - 5 + "px"
+    }
+    function nhanphai() {
+        let image=document.getElementById("nobita");
+        image.style.left=parseInt(image.style.left) + 5 + "px"
+    }
+    function move(evt) {
+        switch(evt.keyCode) {
+            case 37:
+                nhantrai();
+                break;
+            case 39:
+                nhanphai();
+                break;
+            case 38:
+                nhanlen();
+                break;
+            case 40:
+                nhanxuong();
+                break;
+        }
+    }
+    function abc() {
+        window.addEventListener("keydown", move);
+    }
+</script>
+</body>
+</html>

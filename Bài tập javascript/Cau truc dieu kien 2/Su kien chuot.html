@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <title>Sự kiện chuột</title>
 </head>
-<body>
-    <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" alt="Ảnh quả bóng" style = "width: 30%">
-    <p>Click button below to move the image to right</p>
-    <input type="button" value="Click Me" onclick="move();">
+<body onload="docReady()">
+<img id="image" style="width:30%" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg">
+<p>click vào đây:</p>
+<button onclick="move()">Click Me</button>
 <script>
-    let anh = null;
-    anh = document.getElementById("image");
-    function init () {
-        anh = document.getElementById("image");
-        anh.style.position = "relative";
-        anh.style.left = "0px";
+    let img;
+    img = document.getElementById("image");
+    function init() {
+        img = document.getElementById("image");
+        img.style.position = "relative";
+        img.style.left = "0px";
     }
     function move() {
-        anh.style.left = parseInt(anh.style.left) +  10  + "px"
+        img.style.left = parseInt(img.style.left) + 10 + "px";
     }
     window.onload = init;
 </script>
