@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="Nhập °C" id="doC">
+<button onclick="chuyendo()">Chuyển sang °F</button>
+<div id="result">Kết quả</div>
+<script>
+  function chuyendo () {
+    let doC = document.getElementById("doC").value;
+    let doF = (doC*9+160)/5
+    document.getElementById("result").innerHTML = doF + "°F"
+  }
+</script>
+
+</body>
+</html>
