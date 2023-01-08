@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+  Phí thuê bao bắt buộc là 25 nghìn.
+  <br>
+  600 đồng cho mỗi gọi của 50 phút đầu tiên.
+  <br>
+  400 đồng cho mỗi phút gọi của 150 phút tiếp theo.
+  <br>
+  200 đồng cho bất kỳ mỗi phút nào sau 200 phút đầu tiên.
+</p>
+<input type="text" id="phut" placeholder="Nhap so phut cuoc goi">
+<button onclick="tinhcuoc()">Kiem tra</button>
+<br>
+<br>
+<div id="giacuoc">Giá cước điện thoại: </div>
+<script>
+  function tinhcuoc() {
+    let sophut = document.getElementById("phut").value;
+    let ketqua
+    if (sophut<50)
+      ketqua = sophut*600 + " VND";
+    else if (sophut<150)
+      ketqua = 50*600 + (sophut-50)*400 + " VND";
+    else
+      ketqua = 50*600 + 150*400 + (sophut-200)*200 + " VND";
+    document.getElementById("giacuoc").innerHTML = ketqua;
+
+  }
+</script>
+</body>
+</html>
