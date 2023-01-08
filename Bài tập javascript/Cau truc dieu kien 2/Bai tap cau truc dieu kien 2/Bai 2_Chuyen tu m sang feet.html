@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="m" placeholder="Nhap m vao day">
+<button onclick="chuyen()">Check</button>
+<div id="result">Kết quả:</div>
+<script>
+  function chuyen() {
+    let m = document.getElementById("m").value;
+    let result = ""
+    result = m*3.2808
+    document.getElementById("result").innerHTML = "Ket qua la: " + result + " ft"
+  }
+</script>
+</body>
+</html>
