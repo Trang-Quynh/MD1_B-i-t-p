@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="diemkiemtra" placeholder="Nhập điểm kiểm tra">
+<input type="text" id="diemgiuaky" placeholder="Nhập điểm kiểm tra giữa kỳ">
+<input type="text" id="diemcuoiky" placeholder="Nhập điểm kiểm tra cuối kỳ">
+<p id="result">Kết quả xếp loại:</p>
+<script>
+    let ketqua = document.getElementById("result");
+    ketqua.addEventListener("click",xeploai);
+        function xeploai() {
+            let test = Number(document.getElementById("diemkiemtra").value);
+            let mid = Number(document.getElementById("diemgiuaky").value);
+            let final = Number(document.getElementById("diemcuoiky").value);
+        ketqua = (test + mid*2 + final*3)/6;
+        if (ketqua<5)
+            ketqua = "Xep loai yeu";
+        else if (ketqua<6.5)
+            ketqua = "Xep loai trung binh"
+        else if (ketqua<=8)
+            ketqua = "Xep loai kha";
+        else
+            ketqua = "Xep loai gioi";
+    document.getElementById("result").innerHTML = ketqua
+        }
+</script>
+</body>
+</html>
