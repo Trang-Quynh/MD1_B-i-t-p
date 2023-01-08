@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="doanhthu" placeholder="Nhập doanh thu vào đây">
+<br>
+<br>
+<div id="result">Hoa hồng:</div>
+<script>
+  let hoahong = document.getElementById("result");
+  hoahong.addEventListener("click",tinhhoahong);
+  function tinhhoahong() {
+    let doanhthu = document.getElementById("doanhthu").value;
+    if (doanhthu<50000000)
+      hoahong = doanhthu*5/100 + " VNĐ";
+    else if (doanhthu<100000000)
+      hoahong = doanhthu*7/100 + " VNĐ";
+    else
+      hoahong = doanhthu*10/100 + " VNĐ";
+    document.getElementById("result").innerHTML = "Hoa hồng là " + hoahong
+  }
+</script>
+</body>
+</html>
