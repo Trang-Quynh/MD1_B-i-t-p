@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="canha" placeholder="Nhap do dai canh">
+<select id="donvi">
+  <option>cm</option>
+  <option>dm</option>
+  <option>m</option>
+</select>
+<button onclick="dientich()">Check</button>
+<div id="result">Dien tich hinh vuong la:</div>
+<script>
+  function dientich() {
+    let canha = document.getElementById("canha").value;
+    let dientich = Math.pow(canha, 2);
+    let donvi = document.getElementById("donvi");
+    if (donvi === "cm")
+     document.getElementById('result').innerHTML = "Dien tich hinh vuong la: " + dientich + " cm";
+    else if (donvi === "dm")
+      document.getElementById('result').innerHTML = "Dien tich hinh vuong la: " + dientich + " dm";
+    else (donvi === "m")
+      document.getElementById('result').innerHTML = "Dien tich hinh vuong la: " + dientich + " m";
+  }
+</script>
+</body>
+</html>
