@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="a" placeholder="Nhap canh a">
+<input type="text" id="b" placeholder="Nhap canh b">
+<button onclick="tinhdientich()">Check</button>
+<div id="dientich">Diện tích tam giác vuông:</div>
+<script>
+  function tinhdientich() {
+    let canha = document.getElementById("a").value;
+    let canhb = document.getElementById("b").value;
+    let dientich
+    dientich = (canha*canhb)/2
+    document.getElementById("dientich").innerHTML = "Diện tích của tam giác vuông là: " + dientich + "cm"
+  }
+
+</script>
+
+</body>
+</html>
