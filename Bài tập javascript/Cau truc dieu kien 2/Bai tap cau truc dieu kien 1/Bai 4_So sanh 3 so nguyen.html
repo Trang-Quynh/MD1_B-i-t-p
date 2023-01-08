@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="a" placeholder="Nhap so a">
+<input type="number" id="b" placeholder="Nhap so b">
+<input type="number" id="c" placeholder="Nhap so c">
+<br>
+<br>
+<button id="sosanh" onclick="sosanh()">So sanh a,b,c</button>
+<br>
+<br>
+<div id="ketqua">Ket qua</div>
+<script>
+    let soa = Number(document.getElementById("a").value);
+    let sob = Number(document.getElementById("b").value);
+    let soc = Number(document.getElementById("c").value);
+    let result;
+    function sosanh() {
+        if ((soa>sob) && (soa>soc)) {
+            result = "so a la lon nhat";
+        }
+        else if (sob>soc) {
+            result = "so b la lon nhat";
+        }
+        else {
+            result = "so c la lon nhat"
+        }
+        document.getElementById("ketqua").innerHTML = result
+    }
+</script>
+</body>
+</html>
