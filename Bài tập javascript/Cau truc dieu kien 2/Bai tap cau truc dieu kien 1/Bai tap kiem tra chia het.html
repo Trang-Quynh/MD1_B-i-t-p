@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="number" id="a" placeholder="Nhập số a vào đây:">
+<input type="number" id="b" placeholder="Nhập số b vào đây:">
+<button onclick="kiemtra()">Check</button>
+<div id="result">Result</div>
+<script>
+  function kiemtra() {
+    let soa = document.getElementById("a").value;
+    let sob = document.getElementById("b").value;
+    if (soa % sob == 0) {
+      document.getElementById("result").innerHTML = "a chia hết cho b";
+    } else {
+      document.getElementById("result").innerHTML = "a không chia hết cho b";
+    }
+  }
+</script>
+</body>
+</html>
