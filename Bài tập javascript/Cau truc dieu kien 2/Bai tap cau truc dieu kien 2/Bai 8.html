@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="tuoi" placeholder="Nhap so tuoi">
+<button onclick="Check()">Kiem tra</button>
+<div id="result">Ket qua:</div>
+<script>
+    function Check() {
+        let tuoi = document.getElementById("tuoi").value;
+        let result;
+        if ((tuoi>0) && (tuoi<=120))
+            result = tuoi + " la tuoi cua nguoi";
+        else
+            result = tuoi + " khong phai la tuoi cua nguoi";
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>

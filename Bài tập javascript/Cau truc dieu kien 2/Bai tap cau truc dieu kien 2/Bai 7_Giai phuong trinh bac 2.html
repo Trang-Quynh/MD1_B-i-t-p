@@ -5,7 +5,32 @@
     <title>Title</title>
 </head>
 <body>
+<!--
 https://www.kienguru.vn/blog/dang-toan-phuong-trinh-bac-2-mot-an
 https://lessonopoly.org/giai-phuong-trinh-bac-2
+-->
+<input type="text" id="a" placeholder="Nhap a">
+<input type="text" id="b" placeholder="Nhap b">
+<input type="text" id="c" placeholder="Nhap c">
+<button onclick="giaiphuongtrinh()">Kiem tra ket qua:</button>
+<div id="result">Ket qua:</div>
+<script>
+    function giaiphuongtrinh() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        let c = document.getElementById("c").value;
+        let delta = Math.pow(b, 2) - (4 * a * c);
+        let x1 = ((-b) - Math.sqrt(delta)) / (2*a);
+        let x2 = ((-b) + Math.sqrt(delta)) / (2*a);
+        let result = '';
+        if (delta < 0)
+            result = "Phuong trinh vo nghiem";
+        else if (delta === 0)
+            result = "Phuong trinh co nghiem kep: x1 = x2 = " + -b/(2*a);
+        else
+            result = "Phuong trinh co nghiem la: x1 = " + x1 + "va x2 = " + x2;
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
 </body>
 </html>
