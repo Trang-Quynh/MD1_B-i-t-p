@@ -5,6 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-
+<input type="text" id="a" placeholder="Nhap so a vao day">
+<input type="text" id="b" placeholder="Nhap so b vao day">
+<button onclick="bai6()">Check</button>
+<div id="result">Ket qua</div>
+<script>
+    /*
+    Nếu a = 0, b = 0 ta có thể suy ra phương trình (1) có vô số nghiệm
+Nếu a = 0, b ≠ 0 ta có thể suy ra phương trình (1) vô nghiệm
+Nếu a ≠ 0 ta có thể suy ra phương trình (1) có một nghiệm duy nhất là x = -b/a
+     */
+function bai6() {
+    let a = document.getElementById("a").value;
+    let b = document.getElementById("b").value;
+    let result;
+    if (a == 0 && b == 0)
+        result  = "Phuong trinh co vo so nghiem";
+    else if (a == 0 && b !== 0)
+        result = "Phuong trinh vo nghiem"
+    if (a !== 0)
+        result = "Phuong trinh co 1 nghiem duy nhat la: " + -b/a
+    document.getElementById("result").innerHTML = result;
+}
+</script>
 </body>
 </html>
