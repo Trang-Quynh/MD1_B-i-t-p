@@ -5,6 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-
+<input id="a" type="text" placeholder="Nhap so a">
+<input id="b" type="text" placeholder="Nhap so b">
+<input id="c" type="text" placeholder="Nhap so c">
+<button onclick="bai9()">Check</button>
+<div id="result">Ket qua:</div>
+<script>
+    function bai9() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("a").value;
+        let c = document.getElementById("a").value;
+        let result;
+        if (a > 0 && b > 0 && c > 0 && (a + b) > c && (b + c) > a && (a + c) > b)
+            result = "a, b, c la 3 canh cua tam giac"
+        else
+            result = "a, b, c khong phai la 3 canh cua tam giac"
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
 </body>
 </html>
