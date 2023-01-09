@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="thunhap" placeholder="Nhap thu nhap thang">
+<button onclick="bai11()">Tinh thue thu nhap</button>
+<div id="result">Ket qua:</div>
+<script>
+  function bai11() {
+    let thunhap = document.getElementById("thunhap").value;
+    let result;
+    if (thunhap<=5000000) {
+      result = "Thue thu nhap ca nhan la: " + (thunhap * 0.05.toFixed(2));
+    }else if (thunhap<=10000000) {
+      result = "Thue thu nhap ca nhan la: " + (thunhap * 0.10.toFixed(2));
+    }else if (thunhap<=18000000) {
+      result = "Thue thu nhap ca nhan la: " + (thunhap * 0.15.toFixed(2));
+    }else if (thunhap<=32000000) {
+      result = "Thue thu nhap ca nhan la: " + (thunhap * 0.20.toFixed(2));
+    }else if (thunhap<=52000000){
+      result = "Thue thu nhap ca nhan la: " + (thunhap * 0.25.toFixed(2));
+    }else if (thunhap<=80000000) {
+      result = "Thue thu nhap ca nhan la: " + (thunhap * 0.30.toFixed(2));
+    }else {
+      result = "Thue thu nhap ca nhan la: " + (thunhap * 0.35.toFixed(2));
+      }
+    document.getElementById("result").innerHTML = result + "D"
+  }
+</script>
+</body>
+</html>
