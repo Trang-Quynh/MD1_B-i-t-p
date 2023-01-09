@@ -5,6 +5,26 @@
     <title>Title</title>
 </head>
 <body>
-
+<input type="text" id="sotien" placeholder="Nhap so tien gui">
+<input type="text" id="sonam" placeholder="Nhap so nam gui">
+<button onclick="tinhTienGui()">Check</button>
+<div id="lai">Lai suat:</div>
 </body>
+<script>
+    function tinhTienGui() {
+        let sotien = document.getElementById("sotien").value;
+        let sonam = document.getElementById("sonam").value;
+        let result;
+        if (sonam<1) {
+            result = sotien*Math.pow((1+0.02),2);
+        }else if (sonam<5) {
+            result = sotien*Math.pow((1+0.05),2);
+        }else if (sonam<10) {
+            result = sotien*Math.pow((1+0.07),2);
+        }else {
+            result = sotien*Math.pow((1+0.09),2);
+        }
+        document.getElementById("lai").innerHTML = result.toLocaleString();
+    }
+</script>
 </html>
