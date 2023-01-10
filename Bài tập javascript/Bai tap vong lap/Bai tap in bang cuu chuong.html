@@ -10,9 +10,10 @@ function cuuchuong() {
     document.write("<table border = 1 width = 100%>");
     for (i = 1; i <= 10; i++) {   // Thỏa mãn i<=10
         document.write("<tr>")    // In ra thẻ mở <tr>
-        for (j = 1; j <= 10; j++) //Thực hiện câu lệnh trong vòng lặp for trong
+        for (j = 1; j <= 10; j++) {//Thực hiện câu lệnh trong vòng lặp for trong
             document.write("<td>" + i + " x " + j + " = " + (i * j)) // Xét j<=10 in ra <td> i x j=i*j 10 lần
-        document.write("</td>")// In ra thẻ đóng </td>
+            document.write("</td>")
+        }// In ra thẻ đóng </td>
         document.write("</tr>") // In ra thẻ đóng </tr>> => sau khi thực hiện xong quay lại xét điều kiện 2<=10 lại tiếp tục mở thẻ <tr> và in ra thẻ </td> 10 lần
     }
     document.write("</table>") // In ra thẻ đóng </table>
