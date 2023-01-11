@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check() {
+        let let1 = 0;
+        let let2 = 1;
+        let let3 = 1;
+        while (let3 % 5 !== 0) {
+            let3 = let1 + let2;
+            let1 = let2;
+            let2 = let3;
+            }
+        return let3;
+    }
+    document.write(check());
+</script>
+</body>
+</html>

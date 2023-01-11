@@ -6,20 +6,20 @@
 </head>
 <body>
 <script>
-    function check() {
-        let let1 = 0;
-        let let2 = 1;
-        let let3 = 1;
-        document.write(let1 + "<br>");
-        document.write(let2 + "<br>");
-        for (let num = 3; num < 10; num++) {
-            let1 = let2;
-            let2 = let3;
-            let3 = let1 + let2;
-            document.write(let3 + "<br>");
-        }
+  function check() {
+    let let1 = 0;
+    let let2 = 1;
+    let let3;
+    document.write(let1 + "<br>");
+    document.write(let2 + "<br>");
+    for (let num=3; num<20; num++) {
+      let3 = let1 + let2;
+      let1 = let2;
+      let2 = let3;
+      document.write(let3 + "<br>");
     }
-    document.write(check());
+  }
+  check();
 </script>
 </body>
 </html>

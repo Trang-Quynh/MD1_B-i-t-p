@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check() {
+        let let1 = 0;
+        let let2 = 1;
+        let let3;
+        let sum = 0;
+        for (let num=3; num<20; num++) {
+            let3 = let1 + let2;
+            let1 = let2;
+            let2 = let3;
+            sum = sum + let3;
+        }
+        document.write(sum + 1);
+    }
+    check()
+</script>
+</body>
+</html>
