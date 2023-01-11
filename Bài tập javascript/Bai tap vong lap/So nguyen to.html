@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("Nhập: "));
+    document.write(check(number).value);
+    function check(number) {
+        let souoc = 0; // đếm số ước;
+        let snt = 0; // đếm xem đã đủ số lượng số nguyên chưa;
+        for (let i = 2; i < 1000; i++) { // Nếu i<1000 thì thực hiện câu lệnh ở trong
+            if (snt < number) { // Nếu số lượng SNT < số nhập vào thì thực hiện câu lênh ở trong
+                for (let j = 1; j <= i; j++) { // Xét 0 < số nhập vào thì thực hiện vòng lặp
+                    if (i % j == 0) { // j<i thực hiện câu lệnh if, nếu i%j thì số ước +1
+                        souoc += 1;
+                    }
+                }
+                if (souoc == 2) {// Sau khi thỏa mãn 2 điều kiện if lồng ở trên thực hiện if ở trong
+                    document.write(i + "<br>");// In ra ước
+                    snt += 1;// Số lượng snt + 1 xét đk snt < số nhập vào thực hiện vòng lặp tiếp theo
+                }
+                souoc = 0;
+            } else {
+                break;
+            }
+        }
+    }
+</script>
+</body>
+</html>
