@@ -13,11 +13,10 @@
   let sum = 0;
   for(i = 0; i<=thang; i++){
       sum = goc + lai;
-      goc = sum + lai;
-      lai = (goc + lai)*laisuat;
+      goc = sum;
+      lai = goc*laisuat;
   }
-  document.write("goc la " + goc + "<br>")
-  document.write("lai la " + lai)
+ document.write(sum)
 </script>
 </body>
 </html>
