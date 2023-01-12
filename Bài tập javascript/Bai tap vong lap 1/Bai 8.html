@@ -11,7 +11,7 @@
         let min = parseInt(prompt("Nhap vao gioi han duoi:"));
         let max = parseInt(prompt("Nhap vao gioi han tren:"));
         let soNgauNhien = Math.floor(Math.random() * (max - min)) + min;
-        let soChon = prompt("Nhap lai: ");
+        let soChon = prompt("Nhap vao mot so: ");
         if (soChon == soNgauNhien) {
             alert("Ban da chon dung");
         }
@@ -28,6 +28,8 @@
         else if(soChon > soNgauNhien){
             for (let time = 1; time <=3; time++){
                 soChon = prompt("Nhap lai so nho hon");
+                if (soChon)
+                ;
                 if (soChon == soNgauNhien){
                     alert("Ban da chon dung");
                     break;
