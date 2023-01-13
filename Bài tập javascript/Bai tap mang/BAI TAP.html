@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Bai 1
+    a = prompt("Nhap so a: ");
+    b = prompt("Nhap so b: ");
+    for (let i = a; i<=b ; i++) {
+        document.write(i + "<br>")
+    }
+    //Bai 2
+    a = prompt("Nhap so a: ");
+    b = prompt("Nhap so b: ");
+    for (let i = a; i<=b ; i++) {
+        document.write("<h1>" + i + "</h1>" + "<br>")
+    }
+    //Bai 3
+    a = prompt("Nhap so a: ");
+    b = prompt("Nhap so b: ");
+    for (let i = a; i <= b; i++) {
+        if (i % 2 == 0) {
+            document.write("<h1>" + i + "</h1>" + "<br>")
+        }
+        if (i%2 !== 0) {
+            document.write("<h2>" + i + "</h2>" + "<br>")
+        }
+    }
+    //Bai 4
+    a = prompt("Nhap so a: ");
+    b = prompt("Nhap so b: ");
+    for (let i = a; i <= b; i++) {
+        let tich = a*(a+1);
+        a = a + 1;
+        }
+    //Bai 4
+    let a = parseInt(prompt("Nhap so a: "));
+    let b = parseInt(prompt("Nhap so b: "));
+    let let2 = a + 1;
+    let tich = a*(a+1);
+    console.log(tich)
+    let let1;
+    for (i = 1; i<=(b-a); i++) {
+        let2 = let2 + 1;
+        let1 = tich;
+        tich = let1*let2;
+    }
+    document.write("Tich cua cac so la: " + let1);
+    //Bai 5
+</script>
+</body>
+</html>

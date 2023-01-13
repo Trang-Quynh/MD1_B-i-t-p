@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhap so a: "));
+    let b = parseInt(prompt("Nhap so b: "));
+    let let2 = a + 1;
+    let tich = a*(a+1);
+    console.log(tich)
+    let let1;
+    for (i = 1; i<=(b-a); i++) {
+        let2 = let2 + 1;
+        let1 = tich;
+        tich = let1*let2;
+    }
+    document.write("Tich cua cac so la: " + let1)
+</script>
+</body>
+</html>
