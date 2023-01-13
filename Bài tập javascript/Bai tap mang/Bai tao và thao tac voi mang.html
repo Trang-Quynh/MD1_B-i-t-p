@@ -10,12 +10,11 @@
 <button onclick="display()">Display</button>
 <div id="result"></div>
 <script>
-    let a = 0;
-    let arr = Array();
-
-    function add() {
-        arr[a] = document.getElementById("input").value;
-        a++;
+    let a = 0;// Khởi tạo index cho phần tử
+    let arr = Array(); // Khởi tạo mảng
+    function add() { // Tạo hàm thêm phần tử
+        //arr[a] = document.getElementById("input").value; //Giá trị index a của mảng arr là giá trị lấy từ input
+        arr.push(document.getElementById("input").value)
         document.getElementById("input").value = "";
     }
     function display() {
