@@ -6,19 +6,19 @@
 </head>
 <body>
 <script>
-    //Bai 1
+    //Bai1_1
     a = prompt("Nhap so a: ");
     b = prompt("Nhap so b: ");
     for (let i = a; i<=b ; i++) {
         document.write(i + "<br>")
     }
-    //Bai 2
+    //Bai 1_2
     a = prompt("Nhap so a: ");
     b = prompt("Nhap so b: ");
     for (let i = a; i<=b ; i++) {
         document.write("<h1>" + i + "</h1>" + "<br>")
     }
-    //Bai 3
+    //Bai 1_3
     a = prompt("Nhap so a: ");
     b = prompt("Nhap so b: ");
     for (let i = a; i <= b; i++) {
@@ -29,19 +29,11 @@
             document.write("<h2>" + i + "</h2>" + "<br>")
         }
     }
-    //Bai 4
-    a = prompt("Nhap so a: ");
-    b = prompt("Nhap so b: ");
-    for (let i = a; i <= b; i++) {
-        let tich = a*(a+1);
-        a = a + 1;
-        }
-    //Bai 4
+    //Bai 1_4
     let a = parseInt(prompt("Nhap so a: "));
     let b = parseInt(prompt("Nhap so b: "));
     let let2 = a + 1;
     let tich = a*(a+1);
-    console.log(tich)
     let let1;
     for (i = 1; i<=(b-a); i++) {
         let2 = let2 + 1;
@@ -49,7 +41,76 @@
         tich = let1*let2;
     }
     document.write("Tich cua cac so la: " + let1);
-    //Bai 5
+    //Bai 1_5
+    let a = parseInt(prompt("Nhap so a: "));
+    let b = parseInt(prompt("Nhap so b: "));
+    let tich = 1;
+    let x = a;
+    for (let i = 0; i <= (b - a) ; i++) {
+        if(x%5 === 0){
+            tich = tich*x;
+        }
+        x += 1;
+    }
+    document.write("Tich cua cac so chia het cho 5 tu " + a + " den " + b + " la: " + tich);
+    //Bai 1_6
+    let a = parseInt(prompt("Nhap so a: "));
+    let b = parseInt(prompt("Nhap so b: "));
+    let tong = 0;
+    let x = a;
+    for (let i = 0; i <= (b - a) ; i++) {
+        if(x%7 === 0){
+            tong = tong + x;
+        }
+        x += 1;
+    }
+    document.write("Tong cua cac so chia het cho 7 tu " + a + " den " + b + " la: " + tong);
+    //Bai 1_7
+    let a = parseInt(prompt("Nhap so a: "));
+    let b = parseInt(prompt("Nhap so b: "));
+    let result;
+    let x = a;
+    for (let i = 0; i <= (b - a) ; i++) {
+        if(x%3 === 0 && x%5 === 0){
+            document.write(x + " fizzburr" + "<br>");
+        }if(x%3 === 0 && x%5 !== 0){
+            document.write(x + " fizz" + "<br>");
+        }if(x%5 === 0 && x%3 !== 0){
+            document.write(x + " burr" + "<br>");
+        }
+        x += 1;
+    }
+    //Bai 2_1
+    // HTML
+    // <input type="text" id="a">
+    // <button onClick="check()">Check</button>
+    // <div id="ketqua">Ket qua</div>
+    let chuvi;
+    let dientich;
+    function check()
+    {
+        let canh;
+        canh = document.getElementById("a").value;
+        chuvi = canh * 4;
+        dientich = Math.pow(canh,2)
+        document.getElementById("ketqua").innerHTML = "Chu vi la: " + chuvi + " Dien tich la: " + dientich;
+    }
+    //Bai 2_2
+    //HTML
+    // <input type="text" id="a" placeholder="Nhap a"><br><br>
+    // <input type="text" id="b" placeholder="Nhap b"><br><br>
+    // <button onClick="check()">Check</button>
+    // <br><br>
+    // <div id="result">Ket qua:</div>
+    function check() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        ketqua1 = Math.pow(a, 2);
+        ketqua2 = Math.pow(a, b);
+        document.getElementById("result").innerHTML = a + "^2 la " + ketqua1 + "<br>" + a + "^" + b + " la: " + ketqua2;
+    }
+    //Bai 3_2
+
 </script>
 </body>
 </html>
