@@ -5,14 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+<input type="text" id="nam" placeholder="Nhap mot nam bat ky"><br><br>
+<button onclick="check()">Check</button><br><br>
+<div id="result">Ket qua</div>
 <script>
-    function centuryCount() {
-        //Code xử lý bài 2
-        var ketQua2 = prompt("Nhập năm bất kì để xem năm đó thuộc thế kỉ nào", "Ví dụ: 2019");
-        if (ketQua2 != null) {
-            document.getElementById("ket-qua-2").innerHTML =
-                "Năm " + ketQua2 + " thuộc thế kỉ " + Math.ceil(ketQua2 / 100);// Math.round((ketQua2/100) +1))
-        }
+    function check() {
+        let nam = document.getElementById("nam").value;
+            document.getElementById("result").innerHTML =
+                "Năm " + nam + " thuộc thế kỉ " + Math.ceil(nam / 100);// Math.round((ketQua2/100) +1))
     }
 </script>
 </body>

@@ -122,7 +122,16 @@
     }
     document.write(soa)
     //Bai 2_4
-
+    // < input type = "text" id = "nam" placeholder = "Nhap mot nam bat ky" > < br > < br >
+    // < button onClick = "check()" > Check < /button><br><br>
+    // <div id="result">Ket qua</div>
+    function check() {
+        function check() {
+            let nam = document.getElementById("nam").value;
+            document.getElementById("result").innerHTML =
+                "Năm " + nam + " thuộc thế kỉ " + Math.ceil(nam / 100);// Math.round((ketQua2/100) +1))
+        }
+    }
 </script>
 </body>
 </html>
