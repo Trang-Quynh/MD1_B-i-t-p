@@ -5,14 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="nam" placeholder="Nhap mot nam bat ky"><br><br>
-<button onclick="check()">Check</button><br><br>
+<input type="text" id="canha" placeholder="canh a">
+<input type="text" id="canhb" placeholder="canh b">
+<input type="text" id="canhc" placeholder="canh c">
+<button onclick="check()">Check</button>
 <div id="result">Ket qua</div>
 <script>
     function check() {
-        let nam = document.getElementById("nam").value;
-            document.getElementById("result").innerHTML =
-                "Năm " + nam + " thuộc thế kỉ " + Math.ceil(nam / 100);// Math.round((ketQua2/100) +1))
+        let a = document.getElementById("canha").value;
+        let b = document.getElementById("canhb").value;
+        let c = document.getElementById("canhc").value;
+        if (a === b && b === c && a > 0 && b > 0 && c > 0) {
+            document.getElementById("result").innerHTML = a + b + c +  " la 3 canh cua mot tam giac deu";
+        } else if ((a * a) === ((b * b) + (c * c)) || (b * b) === ((c * c) + (a * a)) || (c * c) === ((a * a) + (b * b)) && a > 0 && b > 0 && c > 0) {
+            document.getElementById("result").innerHTML = a + b + c + " la 3 canh cua mot tam giac vuong";
+        } else if (a === b || b === c || a === c && a > 0 && b > 0 && c > 0) {
+            document.getElementById("result").innerHTML = a + b + c + " la 3 canh cua mot tam giac can";
+        } else if ((a + b) > c && (b + c) > a && (c + a) > b && a > 0 && b > 0 && c > 0) {
+            document.getElementById("result").innerHTML = a + b + c + " la 3 canh cua mot tam giac";
+        } else {
+            document.getElementById("result").innerHTML = a + b + c + " khong phai la 3 canh cua mot tam giac";
+        }
     }
 </script>
 </body>
