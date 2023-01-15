@@ -6,22 +6,17 @@
 </head>
 <body>
 <script>
-  let arr1 = [];
-  let length1 = parseInt(prompt("Nhap so cac so nguyen cho mang 1"))
-  let num1 = '';
-  for (let i = 0; i < length1; i++) {
-    num1 = parseInt(prompt("Nhap so nguyen thu " + (i+1) + " cho mang 1"));
-    arr1.push(num1);
-  }
-  let arr2 = [];
-  let length2 = parseInt(prompt("Nhap so cac so nguyen cho mang 2"));
-  let num2 = '';
-  for (let i = 0; i < length2; i++) {
-    num2 = parseInt(prompt("Nhap so nguyen thu " + (i+1) + " cho mang 2"));
-    arr2.push(num2);
-  }
-  let arr3 = arr1.concat(arr2)
-  document.write(arr3);
+    let integer = [];
+    let length = parseInt(prompt("Nhap so cac so nguyen: " ))
+    let num = '';
+    for (let i = 0; i < length; i++) {
+        num = parseInt(prompt("Nhap mot so nguyen: "));
+        integer.push(num)
+    }
+    integer.sort(function(a,b){
+        return b - a;
+    })
+    document.write(integer)
 </script>
 </body>
 </html>
