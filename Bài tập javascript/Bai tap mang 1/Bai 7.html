@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let integer = [];
+    let length = parseInt(prompt("Nhap so cac so nguyen: " ))
+    let num = '';
+    for (let i = 0; i < length; i++) {
+        num = parseInt(prompt("Nhap mot so nguyen: "));
+        integer.push(num)
+    }
+    let V = parseInt(prompt("Nhap mot so nguyen: "));
+    for (let i = 0; i < integer.length; i++) {
+        if(V === integer[i]){
+            integer.splice(i,1)
+        }
+    }
+    document.write(integer);
+</script>
+</body>
+</html>
