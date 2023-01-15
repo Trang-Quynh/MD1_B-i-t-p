@@ -13,17 +13,16 @@
     num = parseInt(prompt("Nhap mot so nguyen"));
     integer.push(num)
   }
-  let dau = 0;
+let dau = 0;
   let cuoi = integer.length - 1;
   while(dau<cuoi){
-    let a = integer[dau];
-    integer[dau] = integer[cuoi];
-    integer[cuoi] = a;
-    dau++;
-    cuoi--;
+      let a = integer[dau];
+      integer[dau] = integer[cuoi];
+      integer[cuoi] = a;
+      dau++;
+      cuoi--;
   }
   document.write(integer);
-
 </script>
 </body>
 </html>
