@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = "abc6469bc";
+  let count = 0;
+  let arr = [];
+  for (let i = 0; i < a.length; i++) {
+    arr.push(a[i]);
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if(Number.isInteger(parseInt(arr[i]))){
+      count = count + 1
+  }
+  }
+  console.log(Number.isInteger(arr[3]))
+  document.write(count)
+
+</script>
+</body>
+</html>
