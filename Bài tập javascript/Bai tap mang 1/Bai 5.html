@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let integer = [];
+  let length = parseInt(prompt("Nhap so cac so nguyen to"))
+  let num = '';
+  for (let i = 0; i < length; i++) {
+    num = parseInt(prompt("Nhap mot so nguyen"));
+    integer.push(num);
+  }
+  let count = 0;
+  for (let i = 0; i < integer.length; i++) {
+    if(integer[i] < 0){
+        count = count + 1;
+    }
+  }
+  document.write(count)
+</script>
+</body>
+</html>
