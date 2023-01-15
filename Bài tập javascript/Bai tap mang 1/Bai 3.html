@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+  let integer = [];
+  let length = parseInt(prompt("Nhap so cac so nguyen to"))
+  let num = '';
+  for (let i = 0; i < length; i++) {
+    num = parseInt(prompt("Nhap mot so nguyen"));
+    integer.push(num)
+  }
+  let max = integer[0];
+  let i;
+  for (i = 1; i <= integer.length; i++) {
+    if (max < integer[i]) {
+      max = integer[i];
+    }
+  }
+  document.write("max la: " + max + "<br>");
+  let sum = 0;
+  let j = 0;
+  for (; j < integer.length; j++) {
+    sum = sum + integer[j]
+  }
+  document.write("tong cac so nhap vao la: " + sum + "<br>");
+  document.write("trung binh cua cac so nhap vao la: " + (sum/integer.length));
+</script>
 </body>
 </html>
