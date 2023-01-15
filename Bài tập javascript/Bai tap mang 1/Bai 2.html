@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let integer = [];
+    let length = parseInt(prompt("Nhap so cac so nguyen to"))
+    let num = '';
+    for (let i = 0; i < length; i++) {
+        num = parseInt(prompt("Nhap mot so nguyen"));
+        integer.push(num);
+    }
+    let index = 1;
+    let max = integer[0];
+    for (let i = 0; i < integer.length; i++) {
+        if (max < integer[index]) {
+            max = integer[index]
+            index = index + 1;
+        } else {
+            index = index + 1;
+        }
+    }
+    document.write(max + "<br>");
+    document.write(index - 2)
+</script>
+</body>
+</html>
