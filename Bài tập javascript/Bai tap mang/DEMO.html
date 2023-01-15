@@ -5,28 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="canha" placeholder="canh a">
-<input type="text" id="canhb" placeholder="canh b">
-<input type="text" id="canhc" placeholder="canh c">
-<button onclick="check()">Check</button>
-<div id="result">Ket qua</div>
+
 <script>
-    function check() {
-        let a = document.getElementById("canha").value;
-        let b = document.getElementById("canhb").value;
-        let c = document.getElementById("canhc").value;
-        if (a === b && b === c && a > 0 && b > 0 && c > 0) {
-            document.getElementById("result").innerHTML = a + b + c +  " la 3 canh cua mot tam giac deu";
-        } else if ((a * a) === ((b * b) + (c * c)) || (b * b) === ((c * c) + (a * a)) || (c * c) === ((a * a) + (b * b)) && a > 0 && b > 0 && c > 0) {
-            document.getElementById("result").innerHTML = a + b + c + " la 3 canh cua mot tam giac vuong";
-        } else if (a === b || b === c || a === c && a > 0 && b > 0 && c > 0) {
-            document.getElementById("result").innerHTML = a + b + c + " la 3 canh cua mot tam giac can";
-        } else if ((a + b) > c && (b + c) > a && (c + a) > b && a > 0 && b > 0 && c > 0) {
-            document.getElementById("result").innerHTML = a + b + c + " la 3 canh cua mot tam giac";
-        } else {
-            document.getElementById("result").innerHTML = a + b + c + " khong phai la 3 canh cua mot tam giac";
-        }
+    //025468
+let num = prompt("Nhap so");
+let str = num.toString();
+let result = []// là một arr có một phần tử là 0
+for (let i = 0; i < str.length; i++) {
+    if ((str[i] % 2 === 0) && (str[i+1] % 2 === 0)) {
+        result.push(str[i], "-");// thêm vào arr ở trên dấu "-" và phần tử xtr[1]
+    } else {
+        result.push(str[i])
     }
+}
+document.write(result.join(" "))
+
+
+
 </script>
 </body>
 </html>
