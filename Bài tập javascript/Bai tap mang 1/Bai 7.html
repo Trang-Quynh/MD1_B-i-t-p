@@ -5,21 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<script>
-    let integer = [];
-    let length = parseInt(prompt("Nhap so cac so nguyen: " ))
-    let num = '';
-    for (let i = 0; i < length; i++) {
-        num = parseInt(prompt("Nhap mot so nguyen: "));
-        integer.push(num)
-    }
-    let V = parseInt(prompt("Nhap mot so nguyen: "));
-    for (let i = 0; i < integer.length; i++) {
-        if(V === integer[i]){
-            integer.splice(i,1)
+<input type="number" id="inputf" oninput="chuyenDoi(this.value)"
+>
+<p id="result">result</p>
+    <script>
+        function chuyenDoi(dof){
+            dof = parseFloat(dof);
+            document.getElementById("result").innerHTML = (dof-32)/1.8;
         }
-    }
-    document.write(integer);
-</script>
+
+    </script>
 </body>
 </html>

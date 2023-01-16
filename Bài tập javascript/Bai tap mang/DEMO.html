@@ -5,23 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-
-<script>
-    //025468
-let num = prompt("Nhap so");
-let str = num.toString();
-let result = []// là một arr có một phần tử là 0
-for (let i = 0; i < str.length; i++) {
-    if ((str[i] % 2 === 0) && (str[i+1] % 2 === 0)) {
-        result.push(str[i], "-");// thêm vào arr ở trên dấu "-" và phần tử xtr[1]
-    } else {
-        result.push(str[i])
+<script type="text/javascript">
+    function array(arr) {
+        var newArr = []
+        for (var i = 0; i < arr.length; i++) {
+            if (newArr.indexOf(array[i]) === -1) {//Nếu phần tử này chỉ xuất hiện 1 lần thì trả về -1
+                newArr.push(array[i])
+            }
+        }
+        return newArr
     }
-}
-document.write(result.join(" "))
-
-
-
-</script>
-</body>
-</html>
+    console.log(array([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]))
+</script> </body> </html>

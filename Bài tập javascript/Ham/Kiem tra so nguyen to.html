@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input">
+<button onclick="checkSNT()">Check</button>
+<div id="result">ket qua</div>
+<script>
+    // function checkSNT(number){
+    //     let snt = document.getElementById("number").value;
+    //     let count = 0;
+    //     if(snt == 1){
+    //         result = "1 khong phai so nguyen to";
+    //     }
+    //     for (let i = 1; i <= snt; i++) {
+    //         if(snt%i == 0){
+    //             count = count + 1;
+    //         }
+    //     }
+    //     if(count == 2){
+    //         result = snt + " la so nguyen to";
+    //     }else{
+    //         result = snt + " khong phai la so nguyen to";
+    //     }
+    //     return result;
+    //     document.getElementById("result").innerHTML = result;
+    // }
+
+
+    function checkSNT(){
+         let snt = document.getElementById("input").value;
+        let souoc = 0
+        if(snt < 2){
+            // return false
+            document.getElementById("result").innerHTML = snt + " khong phai la so nguyen to";
+
+        }
+        for (let i = 1; i <= snt; i++) {
+            if(snt % i === 0){
+                souoc = souoc + 1;
+            }
+        }
+        if(souoc === 2){
+            document.getElementById("result").innerHTML = snt + " la so nguyen to";
+
+            // return true
+        }
+        else {
+            document.getElementById("result").innerHTML = snt + " khong phai la so nguyen to";
+
+        }
+    }
+    // if (checkSNT(snt)) {
+    //     document.getElementById("result").innerHTML = snt + " la so nguyen to";
+    // } else {
+    //     document.getElementById("result").innerHTML = snt + " khong phai la so nguyen to";
+    // }
+    //
+</script>
+</body>
+</html>

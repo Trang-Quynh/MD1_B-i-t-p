@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>input</label>
+<label>input</label>
+<input id="doi" type="number">
+<p>result: <span id="max"></span></p>
+<input type="button" value="feet to meters" onclick="footToMeters()">
+<input type="button" value="meters to feet" onclick="metersTofoot()">
+  <script>
+      function footToMeters(foot){
+          let meters;
+          foot = document.getElementById("doi").value;
+          meters = 0.305 * foot
+          document.getElementById("max").innerHTML = meters;
+      }
+      function metersTofoot(meters) {
+          let foot;
+          meters = document.getElementById("doi").value;
+          foot = 3.279 * meters;
+          document.getElementById("max").innerHTML = foot;
+      }
+  </script>
+</body>
+</html>
