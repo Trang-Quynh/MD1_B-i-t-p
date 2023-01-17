@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function doicho(a, b) {
+        let arr = [];
+        a = prompt("Nhap so thu nhat: ");
+        b = prompt("Nhao so thư hai: ");
+        arr.push(a, b)
+        for (let i = 0; i < arr.length; i++) {
+            let x = arr[i];
+            arr[i] = arr[arr.length - 1];
+            arr[arr.length -1] = x;
+        }
+        return arr;
+    }
+    let result = doicho(1,2);
+    document.write(result)
+</script>
+</body>
+</html>
