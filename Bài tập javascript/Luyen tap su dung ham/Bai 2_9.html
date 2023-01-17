@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr1 = [1, 2, 3, 3, 3, 4, 5];
+  let arr2 = [6, 7, 8, 9, 10];
+  let arr3 = [11, 12, 13, 14, 15];
+
+  function check(arr, num) {
+    let count1 = 0;// so lan xuat hien
+    for (let i = 0; i < arr.length; i++) {
+      if (num == arr[i]) {
+        count1 += 1
+      }
+    }
+    if (count1 > 0) {
+      result = "So " + num + " xuat hien " + count1 + " lan";
+    } else {
+      result = "-1";
+    }
+    return result;
+  }
+  let result1 = check(arr1,3);
+  document.write(result1);
+</script>
+</body>
+</html>
