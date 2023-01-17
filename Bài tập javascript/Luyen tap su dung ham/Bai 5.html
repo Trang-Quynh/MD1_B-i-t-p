@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+  let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "quila", "Ursa Major", "Leo"];
+  function timchomsao(arr){
+  let index1 = "";
+  let chomsao = "";
+    for (let i = 0; i < arr1.length; i++) {
+      if(ngoisao == arr1[i]){
+        index1 = i;
+        for (let j = 0; j < arr2.length; j++) {
+          if(index1 == j)
+          chomsao = arr2[j]
+          return chomsao;
+        }
+      }else{
+        chomsao = "khong tim thay ngoi sao";
+        return chomsao;
+      }
+    }
+  }
+let ngoisao = prompt("Nhap vao ten ngoi sao")
+let result = timchomsao(ngoisao);
+  document.write(result);
+</script>
+</body>
+</html>
