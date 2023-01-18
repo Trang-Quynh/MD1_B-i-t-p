@@ -4,16 +4,52 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<script type="text/javascript">
-    function array(arr) {
-        var newArr = []
-        for (var i = 0; i < arr.length; i++) {
-            if (newArr.indexOf(array[i]) === -1) {//Nếu phần tử này chỉ xuất hiện 1 lần thì trả về -1
-                newArr.push(array[i])
-            }
-        }
-        return newArr
+<body onload="displayProduct()">
+<h1>Add new product</h1>
+<label><input type="text" id="new"></label>
+<button style="margin-bottom: 20px" onclick="addProduct()">Add</button>
+<div id="demo"></div>
+</body>
+<script>
+    let arr = ["Sony", "Iphone", "Samsung", "Oppo"]
+
+    function addProduct() {
+        let newProduct = document.getElementById("new").value
+        arr.push(newProduct)
+        document.getElementById("new").value = ""
+        displayProduct()
     }
-    console.log(array([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]))
-</script> </body> </html>
+
+    function displayProduct() {
+        let data = "<table>"
+        data += "<tr>"
+        data += "<th colspan='2' id='title'>ProductName</th>"
+        data += "<th>" + arr.length + " products</th>"
+        data += "</tr>"
+        for (let i = 0; i < arr.length; i++) {
+            data += "<tr>"
+            data += "<td width='60%'>" + arr[i] + "</td>"
+            data += "<td><button onclick='edit("+ i +")'>Edit</button></td>"
+            data += "<td><button onclick='del("+ i +")'>Delete</button></td>"
+            data += "</tr>"
+        }
+        data += "</table>"
+        document.getElementById("demo").innerHTML = data;
+    }
+    function edit(i)
+    {
+        let newData = prompt(' ban muon sua thanh gi')
+        arr[i] = newData;
+        displayProduct();
+    }
+    function del(i)
+    {
+        arr.splice(i,1)
+        displayProduct()
+    }
+
+
+
+
+</script>
+</html>

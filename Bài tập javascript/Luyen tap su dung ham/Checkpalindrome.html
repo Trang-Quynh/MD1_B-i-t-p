@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("nhap vao mot tu");
+    for (let i = 0, j = (string.length - i - 1); i < string.length, j > 0; i++, j--) {
+        if(string[i] == string[j]){
+            alert(string + " la mot Palindrome");
+            break;
+        }else{
+            alert(string + " khong phai la mot Palindrome");
+            break;
+        }
+    }
+</script>
+</body>
+</html>
