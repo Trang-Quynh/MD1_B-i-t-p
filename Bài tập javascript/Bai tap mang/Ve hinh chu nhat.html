@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="300" style="border:1px solid #000000"></canvas>
+<script>
+  class rectangle{
+    constructor(x,y,width,height,color){
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+      this.color = color;
+    }
+    draw (canvasId){
+      let rec = document.getElementById(canvasId);
+      let context = rec.getContext("2d");
+      context.fillRect(this.x,this.y,this.width,this.height);
+      context.fillStyle = this.color;
+    }
+  }
+  let rectangle1 = new rectangle(0,0,150,75,"green");
+  rectangle1.draw("canvas");
+</script>
+</body>
+</html>

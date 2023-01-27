@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Học lập trình miễn phí tại freetuts.net</h1>
+
+<form action="/action_page.php">
+    <label>Name:<input type="text" name="name"></label>
+    <label>Email:<input type="text" name="email"></label>
+</form>
+<!--<button onClick="ConfirmDelete();" type="submit" value="1"><img-->
+<!--        src="images/action_delete.png" alt="Delete"></button>-->
+<!--<div style="height: 500px; background: blue" onmousemove="showCoordinates(event)">-->
+
+<!--</div>-->
+<!--<p>Tọa độ X: <span id="x"></span> - Tọa độ Y: <span id="y"></span></p>-->
+<!--<img style=" background: green;"-->
+<!--     onmouseover = "this.style.background='blue';"-->
+<!--     onmouseout = "this.style.background='green';"-->
+<!--     src="http://i.imgur.com/Pb9njIR.png"-->
+<!--/>-->
+<!--<img src="http://i.imgur.com/Pb9njIR.png"-->
+<!--     onmouseover="this.src='https://i.imgur.com/KDmsF.jpg'"-->
+<!--     onmouseout="this.src='https://i.imgur.com/Pb9njIR.png'"-->
+<!--/>-->
+<!--<div id='demo'></div>-->
+<!--<form>-->
+<!--<input disabled name="gender" type="checkbox" value="Nam" >Nam-->
+<!--<input name="gender" type="checkbox" value="Nữ">Nữ-->
+<!--<input name="gender" type="checkbox" value="Khác">Khác-->
+<!--</form>-->
+<script>
+  // function bangCuuChuong()
+  // {
+  //   document.write("<table border=1 width=100%>")
+  //   for(i=1;i<=10;i++)
+  //   {
+  //     document.write("<tr>")
+  //     for(j=1;j<=10;j++)
+  //       document.write("<td>" + (i*j))
+  //     document.write("</td>")
+  //     document.write("</tr>")
+  //   }
+  //   document.write("</table>")
+  // }
+  // document.write(bangCuuChuong().value)
+//
+//   let arr = [];
+//   let data = "";
+//   for (let i = 0; i < 5; i++) {
+//     arr[i]= new Array(1, 2, 3, 4, 5);
+//   }
+//
+//   for (let i = 1; i <= 5; i++) {
+//     for (let j = 1; j <= 5; j++) {
+//       data += i*j + "&nbsp;&nbsp;";
+//     }
+//       data += "<br/>";
+//   }
+//   document.write(data)
+//
+// console.log(data[1][1])
+// let arr = [
+//     [1,2,3,4,5],
+//     [1,2,3,4,5],
+//     [1,2,3,4,5]
+// ]
+//  //3 hàng  5 cột
+//   let sum = 0;
+//   function tinhtonghang() {
+//       for (let i = 0; i < 3; i++) {
+//           for (let j = 0; j < 5; j++) {
+//               sum = sum + arr[i][j]
+//           }
+//           // document.write(sum + "<br>")
+//       }
+//       document.write(sum)
+//   }
+//   tinhtonghang()
+
+//   function tinhtongcot(){
+//     for (let i = 0; i < 5; i++) {
+//         let sum = 0;
+//         for (let j = 0; j < 3; j++) {
+//             sum = sum + arr[j][i];
+//         }
+//         document.write(sum + "<br>")
+//     }
+// }
+// tinhtongcot()
+
+  // for (let i = 0; i < 3; i++) {
+  //     document.write("<br>");
+  //     for (let j = 0; j < 5; j++) {
+  //         document.write(arr[i][j] + " ")
+  //     }
+  // }
+  // var fruits = ["Orange", "Mango", "Banana", "Apple"];
+  // fruits.sort();
+  // console.log(fruits)
+//   var score = [40, 100, 1, 6, 35, 10];
+// score.sort(function(a,b){return b-a;});
+// console.log(score)
+//   const arr = ["a", "b", "c", "d"];
+//   arr.unshift("m", "n");
+//   console.log(arr)
+//   for (let i = 1; i <=100; i++) {
+//       if(i%5 == 0){
+//           continue;
+//       }
+//       document.write(i + "<br>");
+//   }
+//   for (let i = 0; i <= 5; i++) {
+//       if (i==3) {
+//           break;
+//       }
+//       document.write(i)
+//   }
+//   for (let i = 1; i <= 5; i++) {
+//       document.write("<br>");
+//       for (let j = 1; j <= i; j++) {
+//           document.write("*")
+//       }
+//   }
+//   for (let i = 1; i <= 5; i++) {
+//       document.write("<br>");
+//       for (let j = 5; j > i; j--) {
+//           document.write("*")
+//       }
+//   }
+//   for (let i = 0; i < 5; i++) {
+//       for (let k = i+1; k < 5 ; k++) {
+//           document.write("&ensp;");
+//           }
+//       for (let j = 0; j <= i; j++) {
+//           document.write("*");
+//           }
+//       document.write("<br>")
+//       }
+//   for (let i = 0; i < 5; i++) {
+//       for (let k = 0; k < i; k++) {
+//           document.write("&ensp;");
+//       }
+//       for (let j = i; j < 5; j++) {
+//           document.write("*");
+//       }
+//       document.write("<br>")
+//   }
+//   for (let i = 0; i < 10; i++) {
+//       for (let j = 9; j > 0; j--) {
+//           if(i+j == 10){
+//               document.write(i + " + " + j + " = 10" + "<br>")
+//       }
+//       }
+//   let sum = 0;
+//   for (let i = 10; i <= 100; i++) {
+//       if(i%2 == 0){
+//           sum = sum + i;
+//   }
+//   }
+// document.write(sum)
+//   let i = prompt("Nhap vao mot so");
+//   while(i%2 !== 0){
+//       i = +prompt("Nhap vap mot so");
+//   }
+// let a = document.getElementById("demo");
+// a.innerHTML = "Hello Javascript <span style="display:none;"> 2020</span>"
+//   function showCoordinates(e){
+//       var x = e.clientX;
+//       var y = e.clientY;
+//       document.getElementById("x").innerHTML = x;
+//       document.getElementById("y").innerHTML = y;
+//   }
+//       function ConfirmDelete() {
+//           let x = confirm("Are you sure you want to delete?");
+//           if (x) {
+//               return true;
+//           } else {
+//               return false;
+//           }
+//       }
+</script>
+</body>
+</html>

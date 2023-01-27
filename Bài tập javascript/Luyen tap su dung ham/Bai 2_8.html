@@ -6,16 +6,13 @@
 </head>
 <body>
 <script>
-    let arr1 = [1, 2, 3, 4, 5];
-    let arr2 = [6, 7, 8, 9, 10];
-    let arr3 = [11, 12, 13, 14, 15];
     function doicho(arr) {
-        // let num = +prompt("Nhap so luong phan tu cua mang: ")
-        // arr = [];
-        // for (let i = 0; i < num; i++) {
-        //     a = prompt("Nhap so thu " + (i + 1));
-        //     arr.push(a);
-        // }
+        arr = [];
+        let num = +prompt("Nhap so luong phan tu cua mang: ")
+        for (let i = 0; i < num; i++) {
+            a = +prompt("Nhap so thu " + (i + 1));
+            arr.push(a);
+        }
         let dau = 0;
         let cuoi = (arr.length - 1);
         while (dau < cuoi) {
@@ -27,7 +24,9 @@
         }
         return arr;
     }
-    let result = doicho(arr3);
+
+
+    let result = doicho();
     document.write(result)
 </script>
 </body>

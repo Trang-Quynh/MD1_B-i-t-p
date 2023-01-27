@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div style="float: left;">
+        <h3>Nokia</h3>
+        <textarea cols="30" rows="10" id="textNokia"></textarea>
+        <br> <br>
+        <button onclick="statusNokia()">Check Status</button>
+        <button onclick="toggleNokia()">On/Off</button>
+        <button id="nokia" onclick="chargeNokia()" value="1">Sac Pin</button>
+        <span id="listSendN"></span> <br>
+        <span id="listNokia"></span> <br>
+        <button onclick="sendMessageNokia()">Send</button>
+        <button onclick="inboxN()">Inbox</button>
+        <button onclick="messagetoI()">Sent Message</button>
+        <p id="nok">Display status</p>
+        <p id="tindaguiI">Display sent messages</p>
+        <p id="nhanfromI">Display inbox messages</p>
+    </div>
+
+    <div style="float: right; width: 50%">
+        <h3>Iphone</h3>
+        <textarea cols="30" rows="10" id="textIphone"></textarea>
+        <br> <br>
+        <button onclick="statusIphone()">Check Status</button>
+        <button onclick="toggleIphone()">On/Off</button>
+        <button onclick="chargeIphone()">Sac Pin</button>
+        <span id="listSendI"></span> <br>
+        <span id="listIphone"></span> <br>
+        <button onclick="sendMessageIphone()">Send</button>
+        <button onclick="inboxI()">Inbox</button>
+        <button onclick="messagetoN()">Sent message</button>
+        <p id="iph">Display status</p>
+        <p id="tindaguiN">Display sent messages</p>
+        <p id="nhanfromN">Display inbox messages</p>
+        <br> <br>
+    </div>
+</div>
+<script>
+    let sentNokia = [];//tin đã gửi của nokia
+    let sentIphone = [];
+    class Mobile {
+
+        constructor(battery, status) {
+            this.battery = battery;
+            this.status = status;
+        }
+
+        //Kiểm tra trạng thái ban đầu của điện thoại: false=> Mobile is off
+        statusMobile(id) {
+            if (this.status === true) {
+                document.getElementById(id).innerHTML = "Mobile is ON";
+            } else {
+                document.getElementById(id).innerHTML = "Mobile is OFF";
+            }
+        }
+
+        //Chuyển trạng thái nếu off sẽ chuyển thành on và ngược lại
+
+        toggleMobile() {
+            if (this.status == true) {
+                return this.status = false;
+
+            } else {
+                return this.status = true;
+            }
+        }
+
+        chargeMobile() {
+            if (this.battery = 100) {
+                alert("100%");
+                return;
+            } else {
+                alert(this.battery);
+                this.battery++;
+            }
+        }
+
+        sendtoNokia() {
+            let send = document.getElementById("textIphone").value;
+            sentIphone.push(send);
+            alert("Message " + send + " has been sent");
+            this.battery--;// ham nay cua Iphone
+        }
+
+        sendtoIphone() {
+            let send = document.getElementById("textNokia").value;
+            sentNokia.push(send);
+            alert("Message " + send + " has been sent");
+            this.battery--;// ham nay cua Nokia
+        }
+
+        messagetoIphone() {
+            for (let i = 0; i < sentNokia.length; i++) {
+                document.getElementById("tindaguiI").innerHTML = sentNokia[i];
+            }
+            this.battery--;
+        }
+
+        messagetoNokia() {
+            for (let i = 0; i < sentIphone.length; i++) {
+                document.getElementById("tindaguiN").innerHTML = sentIphone[i];
+            }
+            this.battery--;
+        }
+        inboxNokia() {
+            for (let i = 0; i < sentIphone.length; i++) {
+                document.getElementById("nhanfromI").innerHTML = sentIphone[i];
+            }
+            this.battery--;
+        }
+        inboxIphone() {
+            for (let i = 0; i < sentNokia.length; i++) {
+                document.getElementById("nhanfromN").innerHTML = sentNokia[i];
+            }
+            this.battery--;
+        }
+    }
+
+
+
+
+
+
+
+    let nokia = new Mobile(100,false);
+    let iphone = new Mobile(100,false);
+    function statusNokia(){
+        return nokia.statusMobile("nok");
+    }
+    function statusIphone(){
+        return iphone.statusMobile("iph");
+    }
+    function toggleNokia(){
+        return nokia.toggleMobile();
+    }
+    function toggleIphone(){
+        return iphone.toggleMobile();
+    }
+    function chargeNokia(){
+        return nokia.chargeMobile();
+    }
+    function chargeIphone(){
+        return iphone.chargeMobile();
+    }
+    function sendMessageNokia(){    // gui tin nhan
+        return nokia.sendtoIphone();
+    }
+    function sendMessageIphone(){
+        return iphone.sendtoNokia();
+    }
+    function messagetoI(){
+        return nokia.messagetoIphone();
+    }
+    function messagetoN(){
+        return iphone.messagetoNokia();
+    }
+    function inboxI(){
+        return iphone.inboxIphone();
+    }
+    function inboxN(){
+        return nokia.inboxNokia();
+    }
+
+</script>
+</body>
+</html>
+

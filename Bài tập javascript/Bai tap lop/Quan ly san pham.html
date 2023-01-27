@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="display()">
+<h1>Add new product</h1>
+<input type="text" id="new">
+<button onclick="add()">Add</button>
+<div id="demo"></div>
+<script>
+let arr = ["Orange", "Apple"];
+function display(){
+    let data = "<table>";
+    data = data + "<tr>";
+    data = data + "<th colspan='2'>Product Name</th>";
+    data = data + "<th>" + arr.length + "products</th>";
+    data = data + "</tr>";
+    for (let i = 0; i < arr.length; i++) {
+        data = data + "<tr>";
+        data = data + "<td>" + arr[i] + "<td>";
+        data = data + "<td><button onclick='edit("+ i +")'>Edit</button></td>";
+        data = data + "<td><button onclick='del("+ i +")'>Delete</button></td>";
+        data = data + "</tr>" + "<br>";
+    }
+    data = data + "</table>"
+    document.getElementById("demo").innerHTML = data;
+}
+function add(){
+    let newProduct = document.getElementById("new").value;
+    arr.push(newProduct);
+    document.getElementById("new").value = "";
+    display();
+}
+function edit(i){
+    let editProduct = prompt("Sua thanh");
+    arr[i] = editProduct;
+    display();
+}
+function del(i){
+    arr.splice(i,1);
+    display();
+}
+</script>
+</body>
+</html>

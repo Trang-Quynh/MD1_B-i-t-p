@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="300" style="border: 1px solid #0000FF"></canvas>
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        dientich() {
+            document.write("Dien tich la " + this.width * this.height);
+        }
+
+        chuvi() {
+            document.write("Chu vi la " + (this.width + this.height) * 2);
+        }
+
+        vehinh(x, y, color) {
+            let context = document.getElementById("canvas").getContext("2d");
+            context.fillRect(x, y, this.width, this.height);
+            context.fillStyle = color;
+        }
+    }
+    rectangle = new Rectangle(300,200);
+    rectangle.dientich();
+    rectangle.chuvi();
+    rectangle.vehinh(0,0, "#0000FF");
+</script>
+</body>
+</html>

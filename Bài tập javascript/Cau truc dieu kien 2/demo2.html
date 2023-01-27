@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<img id="anh" src="https://i.pinimg.com/236x/5c/0b/a4/5c0ba47e2e6e5ccf42eb4ec54cd342ef.jpg" style="height:150px; width:150px; border-radius:50%
+;position:relative; top:0px; left:0px">
+<script>
+  let x = document.getElementById("anh");
+setInterval(()=> {
+  // x.style.left = parseInt( x.style.left) + 5 + "px";
+  //       },10)
+  // alert(window.innerWidth)
+  x.style.left = parseInt(x.style.left) + 1 + "px";
+  if (parseInt(x.style.left) >= window.innerWidth) {
+    x.style.left = "-150px";
+  }
+}, 1)
+//đi hình chữ nhật, dùng nút để thay đổi hướn
+  // bob.codegym
+</script>
+</body>
+</html>

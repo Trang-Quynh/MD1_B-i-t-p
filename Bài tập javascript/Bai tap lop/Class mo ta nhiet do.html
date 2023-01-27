@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+  class temperature{
+    constructor(doC) {
+        if (doC >= -273) {
+            this.doC = doC;
+        }
+    }
+      chuyen(){
+        let doF = (9 / 5 * this.doC) + 32;
+        document.write("Do F la: " + doF + "<br>");
+        let doKelvin = this.doC + 273.15;
+        document.write("Do Kelvin la: " + doKelvin);
+      }
+  }
+  let temperature1 = new temperature(25);
+  temperature1.chuyen();
+
+</script>
+</body>
+</html>
