@@ -20,6 +20,7 @@
       let context = rec.getContext("2d");
       context.fillRect(this.x,this.y,this.width,this.height);
       context.fillStyle = this.color;
+      context.fill();
     }
   }
   let rectangle1 = new rectangle(0,0,150,75,"green");

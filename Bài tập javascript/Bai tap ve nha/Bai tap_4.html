@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="anh" src="https://cdn.myanimelist.net/images/characters/13/406725.jpg" style="height:150px; width:100px; border-radius:50%
+;position:relative; top:100px; left:300px">
+
+<script>
+    let x = document.getElementById("anh");
+    setInterval(()=> {
+        x.style.left = parseInt(x.style.left) + 1 + "px";
+        window.addEventListener("keydown", (e) => {
+            if (e.key === 'a') {
+                x.style.left = parseInt(x.style.left) + 1 + "px";
+            }
+            if (e.key === 'b') {
+                x.style.left = parseInt(x.style.left) - 1 + "px";
+            }
+            if (e.key === 'c') {
+                x.style.top = parseInt(x.style.top) + 1 + "px";
+            }
+            if (e.key === 'd') {
+                x.style.top = parseInt(x.style.top) - 1 + "px";
+            }
+        })
+    }, 100);
+</script>
+</body>
+</html>

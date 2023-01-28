@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="image" src="https://i.pinimg.com/originals/79/70/26/7970269ecbffc8c3af138e13b802be55.jpg" style="height:150px; width:150px; border-radius:50px; position: relative;top:0px; left:0px" alt="image">
+<script>
+    let Image = document.getElementById("image");
+    let a = setInterval(move,1);
+    let MoveBy = 5;
+    function move() {
+        Image.style.top = parseInt(Image.style.top) + MoveBy + "px";
+        if (parseInt(Image.style.top) >= window.innerHeight - 150) {
+            Image.style.top = (window.innerHeight - 150) + "px";
+            Image.style.left = parseInt(Image.style.left) + MoveBy + "px";
+            if ((parseInt(Image.style.left) >= window.innerWidth - 150) && (parseInt(Image.style.top) === window.innerHeight - 150)){
+                Image.style.left = (window.innerWidth - 150) + "px";
+                Image.style.top = parseInt(Image.style.top) - MoveBy + "px";
+                if(parseInt(Image.style.top)<=150){
+                    Image.style.top = 150 + "px";
+                    Image.style.left = parseInt(Image.style.left) - MoveBy + "px";
+                }
+            }
+        }
+    }
+    console.log(window.innerHeight);
+    console.log(window.innerWidth);
+
+</script>
+</body>
+</html>

@@ -8,6 +8,15 @@
 <button onclick="move()">Click</button>
 <canvas id="canvas" width="500" height="300" style="border: 1px solid #000000"></canvas>
 <script>
+    function printMousePos() {
+        let cursorX;
+        let cursorY;
+        document.onmousemove = function(e){
+            cursorX = e.pageX;
+            cursorY = e.pageY;
+        }
+        document.getElementById('test').innerHTML = "x: " + cursorX + ", y: " + cursorY;
+    }
     // function startDraw(canvasId){
         let circle = document.getElementById("canvas");
         let context = circle.getContext("2d");
