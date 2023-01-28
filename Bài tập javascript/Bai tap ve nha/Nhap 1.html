@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<img id="image" src="https://i.pinimg.com/originals/79/70/26/7970269ecbffc8c3af138e13b802be55.jpg" style="height:150px; width:150px; border-radius:50px;
+position: relative;top:0; left:0" alt="image">
+</body>
+<script>
+  let image = document.getElementById("image");
+  let x = image.style.left;
+  let y = image.style.top;
+  let vx = 1;//speed move by 1px per 1ms
+  let vy = 1;
+  setInterval(move,1)
+  function move() {
+   x = parseInt(x) + 1;
+   y = parseInt(y) + 1
+    if (image.width + x > innerWidth)// VD: innerWidth là 100, radius là 20 do đó x sẽ là 80
+      vx = 0 - vx;
+    if (x - image.width < 0)
+      vx = 0 - vx;
+    if (y + image.height > innerHeight)
+      vy = 0 - vy;
+    if (y - image.height < 0)
+      vy = 0 - vy;
+    x = x + vx;
+    y = y + vy;
+  }
+</script>
+</html>
