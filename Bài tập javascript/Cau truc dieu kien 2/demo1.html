@@ -4,26 +4,45 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body >
 <img id="anh" src="https://i.pinimg.com/236x/5c/0b/a4/5c0ba47e2e6e5ccf42eb4ec54cd342ef.jpg" style="height:150px; width:150px; border-radius:50%
 ;position:relative; top:100px; left:300px">
 
 <script>
   let x = document.getElementById("anh");
-  window.addEventListener("keydown", (e) => {
-    if (e.key == 'a') {
-      x.style.left = parseInt(x.style.left) + 100 + "px";
-    }
-    if (e.key == 'b') {
-      x.style.left = parseInt(x.style.left) - 100 + "px";
-    }
-    if (e.key == 'c') {
-      x.style.top = parseInt(x.style.top) + 100 + "px";
-    }
-    if (e.key == 'd') {
-      x.style.top = parseInt(x.style.top) - 100 + "px";
-    }
-  })
+  // window.addEventListener("keydown", (e) => {
+  //   if (e.key == 'a') {
+  //     x.style.left = parseInt(x.style.left) + 100 + "px";
+  //   }
+  //   if (e.key == 'b') {
+  //     x.style.left = parseInt(x.style.left) - 100 + "px";
+  //   }
+  //   if (e.key == 'c') {
+  //     x.style.top = parseInt(x.style.top) + 100 + "px";
+  //   }
+  //   if (e.key == 'd') {
+  //     x.style.top = parseInt(x.style.top) - 100 + "px";
+  //   }
+  // })
+  function doReady(){
+      addEventListener("keydown", move)
+  }
+
+  function move(evt){
+        if (evt.keyCode == 37) {
+          x.style.left = parseInt(x.style.left) + 1 + "px";
+        }
+        if (evt.keyCode == 39) {
+          x.style.left = parseInt(x.style.left) - 1 + "px";
+        }
+        if (evt.keyCode == 38) {
+          x.style.top = parseInt(x.style.top) + 1 + "px";
+        }
+        if (evt.keyCode == 40) {
+          x.style.top = parseInt(x.style.top) - 1 + "px";
+        }
+  }
+  doReady()
 </script>
 </body>
 </html>
