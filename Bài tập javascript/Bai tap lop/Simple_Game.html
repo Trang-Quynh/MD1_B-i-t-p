@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="300" height="600" style="border:1px solid #0000FF"></canvas>
+<script>
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+    nhanvat = {
+        x:100,
+        y:500
+    }
+    setInterval(start,100);
+    function start(){
+        context.fillRect(nhanvat.x,nhanvat.y,25,25);
+        context.fillStyle="red";
+        nhanvat.y = nhanvat.y - 5;
+        context.clearRect(0,0,300,600)
+    }
+
+</script>
+</body>
+</html>
