@@ -22,6 +22,9 @@
     #ul{
         list-style: none;
     }
+    #nghiamo{
+        display:none
+    }
     /*#correcta {*/
     /*    display: none;*/
     /*}*/
@@ -45,6 +48,9 @@
     <p id="result"></p>
     <p id="total1">So cau dung la: </p>
     <p id="total2">So cau sai la: </p>
+    <button id="meaning" onclick="confirm()">Nghĩa của từ này:</button>
+    <d id="nghia"></d>
+    <d id="nghiamo"></d>
 </div>
 <script>
 
@@ -105,7 +111,9 @@ function go() {
         arr = [1, 2, 3, 4];
         let num = Math.floor(Math.random() * arr.length);
         dapandung.innerHTML = arr[num];// In ra dùng để đối chiếu kết quả vì không truy xuất được trực tiếp arr[num] trong hàm check
-        switch (arr[num]) {
+        document.getElementById("nghiamo").innerHTML = nghia[indexqa];
+        console.log(nghia[indexqa])
+    switch (arr[num]) {
             case 1:
                 a1.innerHTML = "1. " + answer1;
                 break;
@@ -178,40 +186,59 @@ function go() {
         }
         answer.value = "";
     }
-
 function checkResult() {
     let text = Number(dapandung.innerHTML);// Là câu trả lời đúng
-    let input = answer.value;// Là câu trả lời nhập vào
-        if (input === '') { // chỗ này thêm else if trường hợp số nhập vào lớn hơn 4 sẽ hiển thị hãy chọn một trong 4 đáp án
-            result.innerHTML = "Bạn chưa nhập câu trả lời. Hãy bấm Start/Restart để bắt đầu.";
+    console.log(text)
+    let input = Number(answer.value);// Là câu trả lời nhập vào
+    let kq1 = a1.innerHTML;
+    let kq2 = a2.innerHTML;
+    let kq3 = a3.innerHTML;
+    let kq4 = a4.innerHTML;
+    let kq;
+    if (input == "") {
+        document.getElementById("result").innerHTML = "Bạn chưa nhập câu trả lời. Hãy nhấn nút Start/Restart để bắt đầu."
+    } else {
+        if (text == input) {
+            result.innerHTML = "Câu trả lời chính xác!"
+            return true;
         } else {
-            if (input == text) {
-                result.innerHTML = "Câu trả lời chính xác!"
-                return true;
-            } else {
-                // switch(text){
-                //     case 1:
-                //         kq = a1.innerHTML;
-                //         break;
-                // }
-                result.innerHTML = "Câu trả lời chưa chính xác. Câu trả lời đúng là: " + text;
-                return false;
+            switch (text) {
+                case 1:
+                    kq = kq1;
+                    break;
+                case 2:
+                    kq = kq2;
+                    break;
+                case 3:
+                    kq = kq3;
+                    break;
+                case 4:
+                    kq = kq4;
+                    break;
             }
+            document.getElementById("result").innerHTML = "Câu trả lời chưa chính xác. Câu trả lời đúng là: " + kq;
+            return false;
         }
     }
-    console.log(checkResult());
+}
+function confirm(){
+        document.getElementById('nghia').innerHTML = nghiamo.innerHTML
+}
+
+
+    let countDung = 0;
+    let countSai = 0;
     function count() {
-        let countDung = 0;
-        let countSai = 0;
         if (checkResult()) {
             countDung++;
-        } else if(checkResult === false){
+        } else if(checkResult == false){
             countSai++;
         }else{
             return "";
         }
         document.getElementById("total1").innerHTML = "Số câu đúng là: " + countDung;
         document.getElementById("total2").innerHTML = "Số câu sai là: " + countSai;
+    console.log(countSai)
     }
     count()
     // inner text

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  #container{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+  }
+
+  .button{
+    height: 25px;
+    width: 200px
+  }
+  #answer{
+    height: 25px;
+    width: 100px
+  }
+  #ul{
+    list-style: none;
+  }
+  #nghiamo{
+    display:none
+  }
+  /*#correcta {*/
+  /*    display: none;*/
+  /*}*/
+</style>
+<body>
+<div id="container">
+  <p>Click vào here để bắt đầu/tiếp tục</p>
+  <button class="button" id="start" onclick="go()">Start/Restart</button>
+  <p id="hiragana"></p>
+  <ul id="ul">
+    <li id="word1"></li>
+    <li id="word2"></li>
+    <li id="word3"></li>
+    <li id="word4"></li>
+  </ul>
+  <p>Nhập đáp án đúng vào ô dưới đây: </p>
+  <input type="number" id="answer">
+  <br>
+  <button class="button" id="check" onclick="checkResult()">Kiểm tra kết quả</button>
+  <p id="correcta">Dap an dung</p>
+  <p id="result"></p>
+  <p id="total1">So cau dung la: </p>
+  <p id="total2">So cau sai la: </p>
+  <button id="meaning" onclick="confirm()">Câu ví dụ: </button>
+  <d id="nghia"></d>
+  <d id="nghiamo"></d>
+</div>
+<script>
+
+  let question = document.getElementById("hiragana");
+  let a1 = document.getElementById("word1");
+  let a2 = document.getElementById("word2");
+  let a3 = document.getElementById("word3");
+  let a4 = document.getElementById("word4");
+  let dapandung = document.getElementById("correcta")
+  let answer = document.getElementById("answer");
+  let result = document.getElementById("result");
+  let total = document.getElementById("total")
+
+  //to transcribe phonetically
+  function go() {
+    let phienam = [
+      "カス！(糟)",
+      "くず！(屑)",
+      "オカマ！",
+      "死ねや！",
+      "負け犬",
+      "この腰抜け！",
+      "出て行け！",
+      "この間抜け！　",
+      "変な奴！",
+      "変態！",
+      "馬鹿野郎！",
+      "畜生！",
+      "何だよ！",
+      "黙ってよ！",
+      "このいも！",
+      "このあま！",
+      "おうしこそ",
+      "けち！",
+    ]
+    let tuvung = [
+      "Đồ cặn ~~!　",
+      "Đồ rác rưởi!",
+      "Đồ quỷ sứ!",
+      "Đi chít đi!!!",
+      "Đồ kém cỏi!",
+      "Đồ hèn nhát!",
+      "Biến!!!",
+      "Đồ dở hơi!",
+      "Đồ lập dị!",
+      "Đồ biến thái!",
+      "Đồ ngu chữ u kéo dài!",
+      "Đồ súc sinh!",
+      "Chú muốn gì nào?",
+      "Im ngay trước khi quá muộn!!!",
+      "Đồ nhà quê!",
+      "Đồ yêu tinh!!",
+      "Như cục ~~!",
+      "Đồ keo kiệt!",
+    ]
+    let nghia = [
+      "消えろカス",
+      "お前くずだ。",
+      "左藤くんの高い声とくねくねした感じがおかまっぽいですね。",
+      "殺してやる！ぶっ殺して、踏み潰してやる！くそったれ！死ねや！",
+      "私のような女の子はあなたのような負け犬とはデートしないの",
+      "何よ！出来ないの！この度胸なし！腰抜けツ！",
+      "Cồng kềnh, chồng lên",
+      "Vận hành",
+      "Câu nệ, kén chọn",
+      "Tiến bộ, phát triển tốt",
+      "Đình trệ, ứ đọng",
+    ]
+    let indexqa = Math.floor(Math.random() * phienam.length);
+    question.innerHTML = phienam[indexqa];
+    let answer1 = tuvung[indexqa];
+    arr = [1, 2, 3, 4];
+    let num = Math.floor(Math.random() * arr.length);
+    dapandung.innerHTML = arr[num];// In ra dùng để đối chiếu kết quả vì không truy xuất được trực tiếp arr[num] trong hàm check
+    document.getElementById("nghiamo").innerHTML = nghia[indexqa];
+    console.log(nghia[indexqa])
+    switch (arr[num]) {
+      case 1:
+        a1.innerHTML = "1. " + answer1;
+        break;
+      case 2:
+        a2.innerHTML = "2. " + answer1;
+        break;
+      case 3:
+        a3.innerHTML = "3. " + answer1;
+        break;
+      case 4:
+        a4.innerHTML = "4. " + answer1;
+        break;
+    }
+    tuvung.splice(indexqa, 1);
+    arr.splice(num, 1);
+    let indexAnswer2 = Math.floor(Math.random() * tuvung.length);
+    let answer2 = tuvung[indexAnswer2];
+    let num2 = Math.floor(Math.random() * arr.length);
+    switch (arr[num2]) {
+      case 1:
+        a1.innerHTML = "1. " + answer2;
+        break;
+      case 2:
+        a2.innerHTML = "2. " + answer2;
+        break;
+      case 3:
+        a3.innerHTML = "3. " + answer2;
+        break;
+      case 4:
+        a4.innerHTML = "4. " + answer2;
+        break;
+    }
+    tuvung.splice(indexAnswer2, 1);
+    arr.splice(num2, 1);
+    let indexAnswer3 = Math.floor(Math.random() * tuvung.length);
+    let num3 = Math.floor(Math.random() * arr.length);
+    let answer3 = tuvung[indexAnswer3];
+    switch (arr[num3]) {
+      case 1:
+        a1.innerHTML = "1. " + answer3;
+        break;
+      case 2:
+        a2.innerHTML = "2. " + answer3;
+        break;
+      case 3:
+        a3.innerHTML = "3. " + answer3;
+        break;
+      case 4:
+        a4.innerHTML = "4. " + answer3;
+        break;
+    }
+    tuvung.splice(indexAnswer3, 1);
+    arr.splice(num3, 1)
+    let indexAnswer4 = Math.floor(Math.random() * tuvung.length);
+    let num4 = Math.floor(Math.random() * arr.length)
+    let answer4 = tuvung[indexAnswer4];
+    switch (arr[num4]) {
+      case 1:
+        a1.innerHTML = "1. " + answer4;
+        break;
+      case 2:
+        a2.innerHTML = "2. " + answer4;
+        break;
+      case 3:
+        a3.innerHTML = "3. " + answer4;
+        break;
+      case 4:
+        a4.innerHTML = "4. " + answer4;
+        break;
+    }
+    answer.value = "";
+  }
+  function checkResult() {
+    let text = Number(dapandung.innerHTML);// Là câu trả lời đúng
+    console.log(text)
+    let input = Number(answer.value);// Là câu trả lời nhập vào
+    let kq1 = a1.innerHTML;
+    let kq2 = a2.innerHTML;
+    let kq3 = a3.innerHTML;
+    let kq4 = a4.innerHTML;
+    let kq;
+    if (input == "") {
+      document.getElementById("result").innerHTML = "Bạn chưa nhập câu trả lời. Hãy nhấn nút Start/Restart để bắt đầu."
+    } else {
+      if (text == input) {
+        result.innerHTML = "Câu trả lời chính xác!"
+        return true;
+      } else {
+        switch (text) {
+          case 1:
+            kq = kq1;
+            break;
+          case 2:
+            kq = kq2;
+            break;
+          case 3:
+            kq = kq3;
+            break;
+          case 4:
+            kq = kq4;
+            break;
+        }
+        document.getElementById("result").innerHTML = "Câu trả lời chưa chính xác. Câu trả lời đúng là: " + kq;
+        return false;
+      }
+    }
+  }
+  function confirm(){
+    document.getElementById('nghia').innerHTML = nghiamo.innerHTML
+  }
+  let countDung = 0;
+  let countSai = 0;
+  function count() {
+    if (checkResult()) {
+      countDung++;
+    } else if(checkResult == false){
+      countSai++;
+    }else{
+      return "";
+    }
+    document.getElementById("total1").innerHTML = "Số câu đúng là: " + countDung;
+    document.getElementById("total2").innerHTML = "Số câu sai là: " + countSai;
+    console.log(countSai)
+  }
+  count()
+  // inner text
+  // text content
+</script>
+</body>
+</html>
