@@ -15,12 +15,39 @@
     }
     setInterval(start,100);
     function start(){
+        context.clearRect(0,0,300,600);
         context.fillRect(nhanvat.x,nhanvat.y,25,25);
         context.fillStyle="red";
-        nhanvat.y = nhanvat.y - 5;
-        context.clearRect(0,0,300,600)
+        vacham();
     }
+window.addEventListener("keydown",move)
 
+
+    function move(evt){
+    switch(evt.keyCode){
+        case 37:
+            if(nhanvat.x>0)
+                nhanvat.x = nhanvat.x - 5;
+                break;
+        case 38:
+            if(nhanvat.y >0)
+                nhanvat.y = nhanvat.y - 5;
+                break;
+        case 39:
+            if(nhanvat.x + 25<300)
+                nhanvat.x = nhanvat.x + 5;
+                break;
+        case 40:
+            if(nhanvat.y + 25<600)
+                nhanvat.y = nhanvat.y + 5;
+                break;
+    }
+};
+    function vacham(){
+        if(nhanvat.x + 25 >= 300 || nhanvat.x <=0){
+            console.log("you loss")
+        }
+    }
 </script>
 </body>
 </html>

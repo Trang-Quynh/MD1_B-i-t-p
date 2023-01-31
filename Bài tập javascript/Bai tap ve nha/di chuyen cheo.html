@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
 </head>
-<body>
-$END$
+<img id="image" src="https://i.pinimg.com/originals/79/70/26/7970269ecbffc8c3af138e13b802be55.jpg" style="height:150px; width:150px; border-radius:50%
+;position:relative; top:0px; left:0px">
+<script>
+  let x = document.getElementById("image");
+  setInterval(move,1)
+  let speedX = 1;
+  let speedY = 1;
+  function move() {
+    x.style.left = parseInt(x.style.left) + speedX + "px";
+    x.style.top = parseInt(x.style.top) + speedY + "px";
+    if (parseInt(x.style.top) >= window.innerHeight - 150 || parseInt(x.style.top)<0) {
+      x.style.left = "-150px"
+    }
+  };
+</script>
 </body>
+</html>
 </html>

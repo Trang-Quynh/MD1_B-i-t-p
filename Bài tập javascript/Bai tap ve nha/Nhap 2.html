@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
-<body>
-$END$
+<img id="image" src="https://i.pinimg.com/originals/79/70/26/7970269ecbffc8c3af138e13b802be55.jpg" style="height:150px; width:150px; border-radius:50%
+;position:relative; top:0px; left:0px">
+<script>
+    let x = document.getElementById("image");
+    setInterval(move,1)
+    let speedX = 0;
+    let speedY = 1;
+    function move() {
+        x.style.left = parseInt(x.style.left) + speedX + "px";
+        x.style.top = parseInt(x.style.top) + speedY + "px";
+        if (parseInt(x.style.left) >= window.innerWidth - 150) {
+            x.style.left = "-150px"
+        }
+    };
+    window.addEventListener("keydown", (e)=> {
+        if(e.key == "d"){
+            speedX = 1;
+            speedY = 0;
+        }if(e.key == "a"){
+            speedX = -1;
+            speedY = 0;
+        }
+    });
+</script>
 </body>
+</html>
 </html>

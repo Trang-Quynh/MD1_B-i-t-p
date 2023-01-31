@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+  class apple{
+    constructor(){
+      this.gram = 10;
+    }
+    getGram = function(){
+        return this.gram
+    }
+  }
+  let apple1 = new apple;
+  console.log(apple1.getGram())
+  class human{
+    constructor(name,gender,weight){
+      this.name = name;
+      this.gender = gender;
+      this.weight = weight;
+    }
+    say = function(string){
+      alert(string)
+    }
+    check = function(){
+      if(apple.gram>10){
+        return true;
+        document.write("can eat");
+      }else{
+        return false;
+        return document.write("can not eat");
+      }
+    }
+    eat = function(apple){
+      if(this.check){
+        apple.gram = apple.gram - 1;
+        this.weight = this.weight + 1;
+        document.write(this.weight + " " + apple.gram)
+      }else{
+        document.write("apple is unripe");
+      }
+    }
+    getInfor = function(object){
+      document.write(object.name + " " + object.gender + " " + object.weight);
+    }
+  }
+  let Adam = new human("adam","male",50);
+  let Eva = new human("eva","female",50);
+ Adam.eat(apple1);
+ Adam.eat(apple1);
+ Adam.say("Hello Eva");
+ Eva.say("Hello Adam");
+
+
+</script>
 </body>
 </html>

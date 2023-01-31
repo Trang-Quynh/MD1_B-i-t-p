@@ -15,7 +15,7 @@
         if (parseInt(Image.style.top) >= window.innerHeight - 150) {
             Image.style.top = (window.innerHeight - 150) + "px";
             Image.style.left = parseInt(Image.style.left) + MoveBy + "px";
-            if ((parseInt(Image.style.left) >= window.innerWidth - 150) && (parseInt(Image.style.top) === window.innerHeight - 150)){
+            if ((parseInt(Image.style.left) >= window.innerWidth - 150) && (parseInt(Image.style.top) >= window.innerHeight - 150)){
                 Image.style.left = (window.innerWidth - 150) + "px";
                 Image.style.top = parseInt(Image.style.top) - MoveBy + "px";
                 if(parseInt(Image.style.top)<=150){
