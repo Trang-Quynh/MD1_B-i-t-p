@@ -1,53 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
 <style>
-  #container{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
+
+  body{
+    background-image: url("https://blogger.googleusercontent.com/img/a/AVvXsEghFtzDs4gA-XJxZApsn4Nkl50RI5UXx4m2-WceVAVmBCfep3eJKKhh8MO8TRMsODssq8FyC5B3yDzBgfmtcOVqEC7uVYcUI1j3YVrr5HzY4YBm2RZ6dTKLDVQ_jZfF1h6tvWw9G0lpQrmSf0TFlMZ-X-ouVwqA6-TwNIn7jx06aimUls68G3OH4Z1r=w1200-h630-p-k-no-nu");
   }
 
-  .button{
-    height: 25px;
-    width: 200px
+  #div1{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 70px;
+    color: lightcoral;
   }
-  #answer{
-    height: 25px;
-    width: 100px
+  #div2{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-right: 80px;
+    font-weight: bold;
+    color: lightcoral;
   }
-  #ul{
+  .button {
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: white;
+    color: lightcoral;
+    border-radius: 50px;
+    font-weight: bold;
+  }
+  .button1 {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: white;
+    color: lightcoral;
+    border-radius: 50px;
+    font-weight: bold;
+  }
+  #answer {
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: white;
+    color: lightcoral;
+  }
+
+  #ul {
     list-style: none;
   }
-  /*#correcta {*/
-  /*    display: none;*/
-  /*}*/
+
+  #nghiamo {
+    display: none
+  }
+  #correcta {
+    display: none;
+  }
+  #nghiamo {
+    color: #f09180;
+  }
 </style>
 <body>
-<div id="container">
-  <p>Click vào here để bắt đầu/tiếp tục</p>
-  <button class="button" id="start">Start/Restart</button>
+<div id="div1" style="float: left;">
+  <p><b>開始するためにここに押してください。</b></p>
+  <button class="button1" type="button" id="start" onclick="go();showNext();hideStart();onClick1()">開始</button>
+  <button class="button1" type="button" id="next" onclick="go();onClick()" hidden="" target>次へ</button>
+  <p><a id="clicks"><b></b></a><b></b></p>
   <p id="hiragana"></p>
   <ul id="ul">
-    <li id="word1"></li>
-    <li id="word2"></li>
-    <li id="word3"></li>
-    <li id="word4"></li>
+    <li class="word" id="word1"></li>
+    <li class="word" id="word2"></li>
+    <li class="word" id="word3"></li>
+    <li class="word" id="word4"></li>
   </ul>
-  <p>Nhập đáp án đúng vào ô dưới đây: </p>
+  <h4 id="styleTime">
+    残りの時間: <span id="timeCountDown"></span>
+  </h4>
+  <audio src="./bgm.mp3" controls autoplay></audio>
+</div>
+<div id="div2" style="float: right;">
+  <p>正しいと思う答えの番号をここに入力してください。 </p>
   <input type="number" id="answer">
-  <br>
-  <button class="button" id="check" onclick="checkResult()">Kiểm tra kết quả</button>
-  <p id="correcta">Dap an dung</p>
+  <br><br><br>
+  <button class="button" id="meaning" onclick="confirm()">ヒント</button>
+  <button type="button" class="button" id="check" onclick="checkResult()">答え確認</button>
+  <br><br>
+  <d id="nghia"></d>
+  <p id="correcta"></p>
+  <d id="nghiamo"></d>
   <p id="result"></p>
-  <p id="total1">So cau dung la: </p>
-  <p id="total2">So cau sai la: </p>
+  <p id="total1"></p>
+  <p id="total2"></p>
 </div>
 <script>
-  let Start = document.getElementById("start");
   let question = document.getElementById("hiragana");
   let a1 = document.getElementById("word1");
   let a2 = document.getElementById("word2");
@@ -55,50 +114,116 @@
   let a4 = document.getElementById("word4");
   let dapandung = document.getElementById("correcta")
   let answer = document.getElementById("answer");
-  let check = document.getElementById("check");
   let result = document.getElementById("result");
-  let total = document.getElementById("total")
+  let countDung = 0;
+  let countSai = 0;
 
-  //to transcribe phonetically
-  Start.onclick = function go() {
+  // hàm hiện nút Next
+  function showNext() {
+    document.getElementById("next").removeAttribute("hidden");
+  }
+  function hideStart() {
+    document.getElementById("start").setAttribute("hidden", "");
+  }
+
+  let clicks = 0;
+  function onClick1() {
+    document.getElementById("clicks").innerHTML = "<b>" + 1 + " 個目:" + "<b>";
+  };
+  function onClick() {
+    clicks += 1;
+    document.getElementById("clicks").innerHTML = "<b>" + (clicks +1) + " 個目:" + "<b>";
+  };
+
+
+
+  function go() {
+    let timeCount = 25;
+    let timerId = setInterval(countTime,1000)
+    function countTime() {
+      document.getElementById('timeCountDown').innerHTML = timeCount + " 秒 ";
+      timeCount--;
+      if (Number(answer.value) === 1 ||  Number(answer.value) === 2 || Number(answer.value) === 3 || Number(answer.value) === 4) {
+        clearInterval(timerId);
+        document.getElementById("timeCountDown").innerText = timeCount + "秒";
+      }else if (timeCount <= 0) {
+        clearInterval(timerId);
+        document.getElementById("timeCountDown").innerText = "残念！時間が切れました。";
+        document.querySelector("input").setAttribute("disabled", "disabled");
+      }
+    }
+
+    document.querySelector("input").removeAttribute("disabled");
     let phienam = [
-      "つのる",
-      "かえりみる",
-      "さえぎる",
-      "くつがえる",
-      "よみがえる",
-      "くつろぐ",
-      "かさばる",
-      "あやつる",
-      "こだわる",
-      "はかどる",
-      "とどこおる"
+      "本は本でもお店で買えない本ってなに？",
+      "ひみつが大好きな仕事ってどんな仕事？",
+      "上がることはあっても、決して下がることがないものって何？",
+      "みんなから「とっても賢いね」と言われる楽器ってなに？",
+      "数字の９が嫌いな動物ってなに？",
+      "ひっくり返えると、軽くなる動物って何？",
+      "口から出てくる「くび」って何？",
+      "丸じゃなくて、四角いボールってなに？",
+      "学校の中でどんどん歳を取る場所ってどこ？",
+      "愛（あい）の下には何がある？",
+      "表だけのカードでやることって何？",
+      "どんなにかきたくても足じゃないとかけないものってなに？",
+      "勝負に３回勝って、雄叫びを上げている魚ってなに？",
+      "陸上競技場にいつもある車って、どんな車？",
+      "いつも消防車に乗ってる動物ってなに？",
+      "オーストラリアの中央にいる動物は？",
+      "１日に２回あるのに、１年に１回しかないものってなに？",
+      "島の中に６匹の動物がいます。なんの動物でしょう？",
+      "閉じると見えなくなって、開けると見えるようになるものって何？",
+      "カタカナ２文字が大喧嘩しました。何と何でしょう？",
+      "世界の真ん中にいる虫は何？",
     ]
     let tuvung = [
-      "募る",
-      "省みる",
-      "遮る",
-      "覆る",
-      "蘇る",
-      "寛ぐ",
-      "嵩張る",
-      "操る",
-      "拘る",
-      "捗る",
-      "滞る"
+      "見本",
+      "書く仕事（隠しごと）",
+      "年齢",
+      "リコーダー（利口だ）",
+      "スカンク（好かん９）",
+      "イルカ（逆から読むと「カルイ」）",
+      "あくび",
+      "段ボール",
+      "廊下（老化）",
+      "う（あい「う」えお）",
+      "占い（裏ない）",
+      "あぐら",
+      "サンショウウオ（三勝・魚）",
+      "トラック",
+      "馬（馬は英語でホースですよね）",
+      "トラ（オース「トラ」リア）",
+      "ち（いちにち・いちねん）",
+      "シロクマ（シマの中にロクで、シロクマ）",
+      "目（または瞼）",
+      "バとル（バトル）",
+      "蚊（せ「か」い）",
     ]
     let nghia = [
-      "Chiêu mộ, tuyển dụng",
-      "Nhìn lại, hồi tưởng lại",
-      "Chắn, chặn, cắt ngang",
-      "Lật đổ",
-      "Sống lại, hồi sinh",
-      "Thư giãn, nghỉ ngơi",
-      "Cồng kềnh, chồng lên",
-      "Vận hành",
-      "Câu nệ, kén chọn",
-      "Tiến bộ, phát triển tốt",
-      "Đình trệ, ứ đọng",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
+      "嫌だな！自分で考えなさいよ。",
     ]
     let indexqa = Math.floor(Math.random() * phienam.length);
     question.innerHTML = phienam[indexqa];
@@ -106,6 +231,7 @@
     arr = [1, 2, 3, 4];
     let num = Math.floor(Math.random() * arr.length);
     dapandung.innerHTML = arr[num];// In ra dùng để đối chiếu kết quả vì không truy xuất được trực tiếp arr[num] trong hàm check
+    document.getElementById("nghiamo").innerHTML = nghia[indexqa];
     switch (arr[num]) {
       case 1:
         a1.innerHTML = "1. " + answer1;
@@ -177,38 +303,75 @@
         a4.innerHTML = "4. " + answer4;
         break;
     }
-    check.onclick = function checkResult() {
-      let a = dapandung;
-      let text = Number(a.innerHTML);// Là câu trả lời đúng
-      let input = answer.value;// Là câu trả lời nhập vào
-      if (input === '') { // chỗ này thêm else if trường hợp số nhập vào lớn hơn 4 sẽ hiển thị hãy chọn một trong 4 đáp án
-        result.innerHTML = "Bạn chưa nhập câu trả lời. Hãy bấm Start/Restart để bắt đầu.";
-      } else {
-        if (input == text) {
-          result.innerHTML = "Câu trả lời chính xác!"
-          return true;
-        } else {
-          result.innerHTML = "Câu trả lời chưa chính xác. Câu trả lời đúng là: " + text + ". " + answer1;
-          return false;
+    answer.value = "";
+    document.getElementById("result").innerHTML = "";
+  }
+
+
+  function checkResult() {
+    let text = Number(dapandung.innerHTML);// Là câu trả lời đúng
+
+    let input = Number(answer.value);// Là câu trả lời nhập vào
+    console.log(Number(answer.value))
+    let kq1 = a1.innerHTML;
+    let kq2 = a2.innerHTML;
+    let kq3 = a3.innerHTML;
+    let kq4 = a4.innerHTML;
+    let kq;
+    if (input == "") {
+      document.getElementById("result").innerHTML = "答えはまだ入力されていません. 開始ボタンを押してください."
+    }else if(input != 1 && input != 2 && input != 3 && input != 4 ){
+      document.getElementById("result").innerHTML = "答えは1~4の中から一つ選んでください."
+    }else{
+      if(text === input){
+        result.innerHTML = "正解!";
+        countDung++;
+        console.log(countDung)
+      }else{
+        switch (text) {
+          case 1:
+            kq = kq1
+            break;
+          case 2:
+            kq = kq2;
+            break;
+          case 3:
+            kq = kq3;
+            break;
+          case 4:
+            kq = kq4;
+            break;
         }
+        document.getElementById("result").innerHTML = "不正解. 正解答えは: " + kq;
+        countSai++;
+        console.log(countSai)
       }
     }
-    answer.value = "";
+    document.getElementById("total1").innerHTML = "正解個数: " + countDung;
+    document.getElementById("total2").innerHTML = "不正解個数: " + countSai;
   }
-      let countDung = 0;
-      let countSai = 0;
-      function display() {
-          if (checkResult()) {
-              countDung++;
-          } else {
-              countSai++;
-          }
-          document.getElementById("total1").innerHTML = "Số câu đúng là: " + countDung;
-          document.getElementById("total2").innerHTML = "Số câu sai là: " + countSai;
-      }
-      display()
-  //inner text
-  //text content
+
+  function confirm() {
+    document.getElementById('nghia').innerHTML = nghiamo.innerHTML
+  }
+
+
+
+  // function count() {
+  //   if (checkResult()) {
+  //     countDung++;
+  //     return;
+  //   } else if (checkResult == false) {
+  //     countSai++;
+  //   } else {
+  //     return "";
+  //   }
+  //   document.getElementById("total1").innerHTML = "正解個数: " + countDung;
+  //   document.getElementById("total2").innerHTML = "不正解個数: " + countSai;
+  //   console.log(countSai)
+  // }
+
+
 </script>
 </body>
 </html>
