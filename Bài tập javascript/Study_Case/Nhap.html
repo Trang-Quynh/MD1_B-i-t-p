@@ -27,7 +27,6 @@
     padding: 15px 30px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     margin: 0 auto;
     cursor: pointer;
     font-size: 20px;
@@ -52,7 +51,6 @@
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     margin: 0 auto;
     cursor: pointer;
     font-size: 15px;
@@ -97,7 +95,7 @@
   <input type="number" id="answer">
   <br><br><br>
   <button class="button" id="meaning" onclick="confirm()">ヒント</button>
-  <button type="button" class="button" id="check" onclick="checkResult()">答え確認</button>
+  <button type="button" class="button" id="check" hidden="" onclick="checkResult()">答え確認</button>
   <br><br>
   <d id="nghia"></d>
   <p id="correcta"></p>
@@ -146,13 +144,15 @@
       if (Number(answer.value) === 1 ||  Number(answer.value) === 2 || Number(answer.value) === 3 || Number(answer.value) === 4) {
         clearInterval(timerId);
         document.getElementById("timeCountDown").innerText = timeCount + "秒";
+        document.querySelector("#check").removeAttribute("hidden");
+      }else if(countTime>0 && countTime<25 && Number(answer.value) !== 1 ||  Number(answer.value) !== 2 || Number(answer.value) !== 3 || Number(answer.value) !== 4){
+        document.querySelector("#next").setAttribute("disabled", "disabled");
       }else if (timeCount <= 0) {
         clearInterval(timerId);
         document.getElementById("timeCountDown").innerText = "残念！時間が切れました。";
         document.querySelector("input").setAttribute("disabled", "disabled");
       }
     }
-
     document.querySelector("input").removeAttribute("disabled");
     let phienam = [
       "本は本でもお店で買えない本ってなに？",
@@ -357,19 +357,6 @@
 
 
 
-  // function count() {
-  //   if (checkResult()) {
-  //     countDung++;
-  //     return;
-  //   } else if (checkResult == false) {
-  //     countSai++;
-  //   } else {
-  //     return "";
-  //   }
-  //   document.getElementById("total1").innerHTML = "正解個数: " + countDung;
-  //   document.getElementById("total2").innerHTML = "不正解個数: " + countSai;
-  //   console.log(countSai)
-  // }
 
 
 </script>

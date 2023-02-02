@@ -6,39 +6,51 @@
 </head>
 <style>
 
-body{
-    background-image: url("https://blogger.googleusercontent.com/img/a/AVvXsEghFtzDs4gA-XJxZApsn4Nkl50RI5UXx4m2-WceVAVmBCfep3eJKKhh8MO8TRMsODssq8FyC5B3yDzBgfmtcOVqEC7uVYcUI1j3YVrr5HzY4YBm2RZ6dTKLDVQ_jZfF1h6tvWw9G0lpQrmSf0TFlMZ-X-ouVwqA6-TwNIn7jx06aimUls68G3OH4Z1r=w1200-h630-p-k-no-nu");
-}
+    body{
+        background-image: url("https://blogger.googleusercontent.com/img/a/AVvXsEghFtzDs4gA-XJxZApsn4Nkl50RI5UXx4m2-WceVAVmBCfep3eJKKhh8MO8TRMsODssq8FyC5B3yDzBgfmtcOVqEC7uVYcUI1j3YVrr5HzY4YBm2RZ6dTKLDVQ_jZfF1h6tvWw9G0lpQrmSf0TFlMZ-X-ouVwqA6-TwNIn7jx06aimUls68G3OH4Z1r=w1200-h630-p-k-no-nu");
+    }
 
-#div1{
-    font-size: 20px;
-    margin-left: 50px;
-    color: lightcoral;
-}
-#div2{
-    font-size: 20px;
-    margin-right: 50px;
-    color: lightcoral;
-    font-weight: bold;
-}
+    #div1{
+        font-size: 20px;
+        margin-top: 30px;
+        margin-left: 70px;
+        color: lightcoral;
+    }
+    #div2{
+        font-size: 20px;
+        margin-top: 30px;
+        margin-right: 80px;
+        font-weight: bold;
+        color: lightcoral;
+    }
     .button {
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 0 auto;
+        cursor: pointer;
+        font-size: 20px;
+        background-color: white;
+        color: lightcoral;
+        border-radius: 50px;
+        font-weight: bold;
+    }
+    .button1 {
         padding: 15px 32px;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
         margin: 0 auto;
         cursor: pointer;
-        font-size: 15px;
+        font-size: 20px;
         background-color: white;
         color: lightcoral;
         border-radius: 50px;
         font-weight: bold;
     }
     #answer {
-        padding: 10px 25px;
+        padding: 10px 15px;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
         margin: 0 auto;
         cursor: pointer;
         font-size: 15px;
@@ -56,42 +68,43 @@ body{
     #correcta {
         display: none;
     }
+    #nghiamo {
+        color: #f09180;
+    }
 </style>
 <body>
 <div id="div1" style="float: left;">
     <p><b>開始するためにここに押してください。</b></p>
-    <p><a id="clicks"><b>0</b></a><b> 個目</b></p>
-    <button type="button"  class="button" id="start" onclick="go(); showNext(); hideStart()">開始</button>
-    <button type="button" class="button" id="next" onclick="go()" hidden="">次へ</button>
+    <button class="button1" type="button" id="start" onclick="go();showNext();hideStart();onClick1()">開始</button>
+    <button class="button1" type="button" id="next" onclick="go();onClick()" hidden="" target>次へ</button>
+    <p><a id="clicks"><b></b></a><b></b></p>
     <p id="hiragana"></p>
     <ul id="ul">
         <li class="word" id="word1"></li>
         <li class="word" id="word2"></li>
         <li class="word" id="word3"></li>
         <li class="word" id="word4"></li>
-    </ul>    <br><br>
-    <h3 id="styleTime">
-        残りの時間:<span id="timeCountDown"></span>
-    </h3>
+    </ul>
+    <h4 id="styleTime">
+        残りの時間: <span id="timeCountDown"></span>
+    </h4>
     <audio src="./bgm.mp3" controls autoplay></audio>
 </div>
 <div id="div2" style="float: right;">
-    <p>正解と思う答えの番号をここに入力ください。 </p>
+    <p>正しいと思う答えの番号をここに入力してください。 </p>
     <input type="number" id="answer">
-    <br><br><br><br>
+    <br><br><br>
     <button class="button" id="meaning" onclick="confirm()">ヒント</button>
-    <button type="button" class="button" id="check" onclick="count(); onClick()">答え確認</button>
+    <button type="button" class="button" id="check" hidden="" onclick="checkResult()">答え確認</button>
+    <br><br>
+    <d id="nghia"></d>
     <p id="correcta"></p>
+    <d id="nghiamo"></d>
     <p id="result"></p>
     <p id="total1"></p>
     <p id="total2"></p>
-    <br>  <br>  <br>
-    <d id="nghia"></d>
-    <d id="nghiamo"></d>
 </div>
 <script>
-    console.log(innerWidth)
-    console.log(innerHeight)
     let question = document.getElementById("hiragana");
     let a1 = document.getElementById("word1");
     let a2 = document.getElementById("word2");
@@ -103,8 +116,42 @@ body{
     let countDung = 0;
     let countSai = 0;
 
-    //to transcribe phonetically
+    // hàm hiện nút Next
+    function showNext() {
+        document.getElementById("next").removeAttribute("hidden");
+    }
+    function hideStart() {
+        document.getElementById("start").setAttribute("hidden", "");
+    }
+
+    let clicks = 0;
+    function onClick1() {
+        document.getElementById("clicks").innerHTML = "<b>" + 1 + " 個目:" + "<b>";
+    };
+    function onClick() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = "<b>" + (clicks +1) + " 個目:" + "<b>";
+    };
+
+
+
     function go() {
+        let timeCount = 25;
+        let timerId = setInterval(countTime,1000)
+        function countTime() {
+            document.getElementById('timeCountDown').innerHTML = timeCount + " 秒 ";
+            timeCount--;
+            if (Number(answer.value) === 1 ||  Number(answer.value) === 2 || Number(answer.value) === 3 || Number(answer.value) === 4) {
+                clearInterval(timerId);
+                document.getElementById("timeCountDown").innerText = timeCount + "秒";
+                document.querySelector("#check").removeAttribute("hidden");
+            }else if (timeCount <= 0) {
+                clearInterval(timerId);
+                document.getElementById("timeCountDown").innerText = "残念！時間が切れました。";
+                document.querySelector("input").setAttribute("disabled", "disabled");
+            }
+        }
+        document.querySelector("input").removeAttribute("disabled");
         let phienam = [
             "本は本でもお店で買えない本ってなに？",
             "ひみつが大好きな仕事ってどんな仕事？",
@@ -183,7 +230,6 @@ body{
         let num = Math.floor(Math.random() * arr.length);
         dapandung.innerHTML = arr[num];// In ra dùng để đối chiếu kết quả vì không truy xuất được trực tiếp arr[num] trong hàm check
         document.getElementById("nghiamo").innerHTML = nghia[indexqa];
-        console.log(nghia[indexqa])
         switch (arr[num]) {
             case 1:
                 a1.innerHTML = "1. " + answer1;
@@ -256,26 +302,30 @@ body{
                 break;
         }
         answer.value = "";
+        document.getElementById("result").innerHTML = "";
     }
+
 
     function checkResult() {
         let text = Number(dapandung.innerHTML);// Là câu trả lời đúng
 
         let input = Number(answer.value);// Là câu trả lời nhập vào
+        console.log(Number(answer.value))
         let kq1 = a1.innerHTML;
         let kq2 = a2.innerHTML;
         let kq3 = a3.innerHTML;
         let kq4 = a4.innerHTML;
         let kq;
-        if (input === "") {
+        if (input == "") {
             document.getElementById("result").innerHTML = "答えはまだ入力されていません. 開始ボタンを押してください."
-        }else if(input<0 && input>4){
-            document.getElementById("result").innerHTML = "1~4の中から一つ選んでください."
-        }else {
-            if (text === input) {
-                result.innerHTML = "正解!"
-                return true;
-            } else {
+        }else if(input != 1 && input != 2 && input != 3 && input != 4 ){
+            document.getElementById("result").innerHTML = "答えは1~4の中から一つ選んでください."
+        }else{
+            if(text === input){
+                result.innerHTML = "正解!";
+                countDung++;
+                console.log(countDung)
+            }else{
                 switch (text) {
                     case 1:
                         kq = kq1
@@ -291,73 +341,22 @@ body{
                         break;
                 }
                 document.getElementById("result").innerHTML = "不正解. 正解答えは: " + kq;
-                return false;
+                countSai++;
+                console.log(countSai)
             }
         }
+        document.getElementById("total1").innerHTML = "正解個数: " + countDung;
+        document.getElementById("total2").innerHTML = "不正解個数: " + countSai;
     }
 
     function confirm() {
         document.getElementById('nghia').innerHTML = nghiamo.innerHTML
     }
 
-    let clicks = 0;
-
-    function onClick() {
-        clicks += 1;
-        document.getElementById("clicks").innerHTML = "<b>" + clicks + "<b>";
-        if (clicks === 20) {
-            result.innerHTML = "全てのなぞなぞを解きました。";
-        }
-    };
 
 
-    function count() {
-        if (checkResult()) {
-            countDung++;
-            return;
-        } else if (checkResult == false) {
-            countSai++;
-        } else {
-            return "";
-        }
-        document.getElementById("total1").innerHTML = "正解個数: " + countDung;
-        document.getElementById("total2").innerHTML = "不正解個数: " + countSai;
-        console.log(countSai)
-    }
-
-    //hàm hiện nút Next
-    function showNext() {
-        document.getElementById("next").removeAttribute("hidden");
-    }
-    function hideStart() {
-        document.getElementById("start").setAttribute("hidden", "");
-    }
 
 
-    let timeCount;
-    let message;
-
-    let timeID = setInterval(function () {
-        document.getElementById('timeCountDown').innerHTML = timeCount + " 秒 ";
-        timeCount--;
-        countdown();
-    }, 1000);
-
-
-    function countdown() {
-        let styles = document.getElementById('styleTime');
-        let styleTime = document.getElementById('timeCountDown');
-        if (timeCount < 0) {
-            clearInterval(timeID);
-            message = window.alert('Time Out!');
-            reload();
-        }
-        if (timeCount < 5){
-            styles.style.color = 'red';
-            styleTime.style.color = 'red';
-        }
-
-    }
 </script>
 </body>
 </html>
