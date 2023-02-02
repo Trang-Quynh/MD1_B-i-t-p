@@ -76,7 +76,7 @@
 <div id="div1" style="float: left;">
     <p><b>開始するためにここに押してください。</b></p>
     <button class="button1" type="button" id="start" onclick="go();showNext();hideStart();onClick1()">開始</button>
-    <button class="button1" type="button" id="next" onclick="go();onClick()" hidden="" target>次へ</button>
+    <button class="button1" type="button" id="next" onclick="kt()" hidden="" target>次へ</button>
     <p><a id="clicks"><b></b></a><b></b></p>
     <p id="hiragana"></p>
     <ul id="ul">
@@ -92,7 +92,7 @@
 </div>
 <div id="div2" style="float: right;">
     <p>正しいと思う答えの番号をここに入力してください。 </p>
-    <input type="number" id="answer">
+    <input type="number" id="answer" value="">
     <br><br><br>
     <button class="button" id="meaning" onclick="confirm()">ヒント</button>
     <button type="button" class="button" id="check" hidden="" onclick="checkResult()">答え確認</button>
@@ -115,6 +115,10 @@
     let result = document.getElementById("result");
     let countDung = 0;
     let countSai = 0;
+
+    function kt () {
+        if (document.getElementById("answer").value != "") {go();onClick()} ;
+    }
 
     // hàm hiện nút Next
     function showNext() {

@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Nazonazotokimashou</title>
 </head>
 <style>
 
@@ -145,7 +145,9 @@
         clearInterval(timerId);
         document.getElementById("timeCountDown").innerText = timeCount + "秒";
         document.querySelector("#check").removeAttribute("hidden");
-      }else if(countTime>0 && countTime<25 && Number(answer.value) !== 1 ||  Number(answer.value) !== 2 || Number(answer.value) !== 3 || Number(answer.value) !== 4){
+      }else if((timeCount>0 && timeCount<25 && Number(answer.value) !== 1 ) &&
+              ||  Number(answer.value) !== 2
+              || Number(answer.value) !== 3 || Number(answer.value) !== 4){
         document.querySelector("#next").setAttribute("disabled", "disabled");
       }else if (timeCount <= 0) {
         clearInterval(timerId);
@@ -154,6 +156,7 @@
       }
     }
     document.querySelector("input").removeAttribute("disabled");
+    // document.querySelector("#next").removeAttribute("disabled");
     let phienam = [
       "本は本でもお店で買えない本ってなに？",
       "ひみつが大好きな仕事ってどんな仕事？",
@@ -350,15 +353,9 @@
     document.getElementById("total1").innerHTML = "正解個数: " + countDung;
     document.getElementById("total2").innerHTML = "不正解個数: " + countSai;
   }
-
   function confirm() {
     document.getElementById('nghia').innerHTML = nghiamo.innerHTML
   }
-
-
-
-
-
 </script>
 </body>
 </html>
