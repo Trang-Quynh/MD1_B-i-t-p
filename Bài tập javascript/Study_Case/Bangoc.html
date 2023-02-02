@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Nazonazotokimashou</title>
+  <title>Title</title>
 </head>
 <style>
 
@@ -76,7 +76,7 @@
 <div id="div1" style="float: left;">
   <p><b>開始するためにここに押してください。</b></p>
   <button class="button1" type="button" id="start" onclick="go();showNext();hideStart();onClick1()">開始</button>
-  <button class="button1" type="button" id="next" onclick="go();onClick()" hidden="" target>次へ</button>
+  <button class="button1" type="button" id="next" onclick="kt()" hidden="" target>次へ</button>
   <p><a id="clicks"><b></b></a><b></b></p>
   <p id="hiragana"></p>
   <ul id="ul">
@@ -92,7 +92,7 @@
 </div>
 <div id="div2" style="float: right;">
   <p>正しいと思う答えの番号をここに入力してください。 </p>
-  <input type="number" id="answer">
+  <input type="number" id="answer" value="">
   <br><br><br>
   <button class="button" id="meaning" onclick="confirm()">ヒント</button>
   <button type="button" class="button" id="check" hidden="" onclick="checkResult()">答え確認</button>
@@ -115,6 +115,10 @@
   let result = document.getElementById("result");
   let countDung = 0;
   let countSai = 0;
+
+  function kt () {
+    if (document.getElementById("answer").value != "") {go();onClick()} ;
+  }
 
   // hàm hiện nút Next
   function showNext() {
@@ -145,10 +149,6 @@
         clearInterval(timerId);
         document.getElementById("timeCountDown").innerText = timeCount + "秒";
         document.querySelector("#check").removeAttribute("hidden");
-      }else if((timeCount>0 && timeCount<25 && Number(answer.value) !== 1 ) &&
-              ||  Number(answer.value) !== 2
-              || Number(answer.value) !== 3 || Number(answer.value) !== 4){
-        document.querySelector("#next").setAttribute("disabled", "disabled");
       }else if (timeCount <= 0) {
         clearInterval(timerId);
         document.getElementById("timeCountDown").innerText = "残念！時間が切れました。";
@@ -156,7 +156,6 @@
       }
     }
     document.querySelector("input").removeAttribute("disabled");
-    // document.querySelector("#next").removeAttribute("disabled");
     let phienam = [
       "本は本でもお店で買えない本ってなに？",
       "ひみつが大好きな仕事ってどんな仕事？",
@@ -353,9 +352,15 @@
     document.getElementById("total1").innerHTML = "正解個数: " + countDung;
     document.getElementById("total2").innerHTML = "不正解個数: " + countSai;
   }
+
   function confirm() {
     document.getElementById('nghia').innerHTML = nghiamo.innerHTML
   }
+
+
+
+
+
 </script>
 </body>
 </html>
