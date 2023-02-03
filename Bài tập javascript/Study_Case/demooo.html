@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript Example</title>
+    <title>Title</title>
 </head>
 <body>
-<button>
-    click me
-</button>
-
-<script language="javascript">
-    document.querySelector("button").setAttribute("disabled", "disabled");
-
+<audio src="./bgm.mp3" controls autoplay></audio>
+<button id="btn1" onclick="changeBtn()" > Start </button>
+<button id="btn2" style="display: none" onclick="changeBtn2()">Next</button>
+<script>
+    document.querySelector('button').addEventListener('click', () => {
+        document.querySelector('video').play();
+    });
+    // nếu count click lớn hơn or bằng 1 thì đổi nút
+    //cho hàm change button vào hàm đếm click
+    function changeBtn(){
+        let a = document.getElementById("btn1")
+        let b = document.getElementById("btn2")
+        a.style.display = 'none'
+        b.style.display = 'block'
+    }
+    function changeBtn2(){
+        let a = document.getElementById("btn1")
+        let b = document.getElementById("btn2")
+        a.style.display = 'block'
+        b.style.display = 'none'
+    }
 </script>
 </body>
 </html>
